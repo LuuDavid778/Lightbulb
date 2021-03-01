@@ -57,8 +57,8 @@ display:${props=>props.PassCheck ? props.PassCheck : "block"};
 
 const PassConfirm = styled.div`
 border-radius: 100%;
-width:10pt;
-height:10pt;
+width:7pt;
+height:7pt;
 border:5px solid #B8B8B8;
 background-color:#B8B8B8;
 margin-right:5pt;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import HomeC from '../../Images/home-colour.png'
+
 const Container = styled.div`
 display:flex;
 flex-direction:column;
