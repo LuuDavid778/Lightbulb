@@ -5,7 +5,7 @@ const Container = styled.div`
 display:flex;
 align-items:center;
 justify-content:center;
-width:156px;
+width:74px;
 height:30px;
 background-color:#FFFFFF;
 border-radius:53px;
@@ -21,17 +21,18 @@ margin:5pt;
 `;
 
 
-const SkillTag = ({HandleClick, BgColor, SkillText, SkillImg}) => {
+const LikeTag = ({HandleClick, BgColor, SkillText, SkillImg}) => {
 
     return<Container BgColor={BgColor} onClick={HandleClick}>
-        <Image src={SkillImg}></Image>
-        <TextCont>{SkillText}</TextCont>
+        <Image src={LikeLogo}></Image>
+        <TextCont>{LikeNumber}</TextCont>
     </Container>
 }
 
-SkillTag.defaultProps = {
-    SkillText: "React Beginner",
+
+LikeTag.defaultProps = {
+    LikeNumber: 120,
     SkillImg: "./ReactLogo.png",
 }
 
-export default SkillTag; 
+export default LikeTag; 
