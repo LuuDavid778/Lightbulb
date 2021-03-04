@@ -4,7 +4,7 @@ import HeartLike from '../../Images/heart.svg'
 
 
 
-const Container = styled.button`
+const Container = styled.div`
 display:flex;
 align-items:center;
 justify-content:center;
@@ -17,10 +17,11 @@ font-family: 'Poppins', sans-serif;
 font-size:14px;
 `;
 
-const Image = styled.img`
+const Likebutton = styled.img`
 cursor:pointer;
 width:14pt;
 height:17pt;
+backgroundColor: white;
 
 `;
 
@@ -31,14 +32,14 @@ margin:5pt;
 
 
 const LikeTag = ({LikeClick, LikeLogo, LikeNumber}) => {
-    const [likePost, setlikePost] = useState(false);
+    const [likePost, setlikePost] = useState(0);
 
 const toggleLikePost = () => {
     console.log("Liked")
-    setlikePost(likePost ? false : true);
+    setlikePost(0);
   };
     return<Container >
-        <Image src={HeartLike} onClick={toggleLikePost}></Image>
+        <Likebutton src={HeartLike}  style={{backgroundColor: likePost === active ? "red" : ""}} onClick={() => {toggleLikePost(true)}}></Likebutton>
         <TextCont>{LikeNumber}</TextCont>
     </Container>
 }
