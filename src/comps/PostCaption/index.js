@@ -4,7 +4,7 @@ import HeartLike from '../../Images/heart.svg'
 
 
 
-const Container = styled.button`
+const Container = styled.div`
 display:flex;
 align-items:center;
 justify-content:center;
@@ -28,25 +28,17 @@ const TextCont = styled.div`
 margin:5pt;
 `;
 
-
-
 const LikeTag = ({LikeClick, LikeLogo, LikeNumber}) => {
-    const [likePost, setlikePost] = useState(false);
-
-const toggleLikePost = () => {
-    console.log("Liked")
-    setlikePost(likePost ? false : true);
-  };
     return<Container >
         <Image src={HeartLike} onClick={toggleLikePost}></Image>
-        <TextCont>{LikeNumber}</TextCont>
+        <TextCont>{CaptionTxt}</TextCont>
     </Container>
 }
 
 
 LikeTag.defaultProps = {
     LikeNumber: 120,
-    LikeLogo: "./ReactLogo.png",
+    CaptionTxt: "I spent all night on this for my Web Development class. I used styled.css and react for it. Here are some screenshots of my code. Let me know what you guys think! ",
 }
 
 export default LikeTag; 
