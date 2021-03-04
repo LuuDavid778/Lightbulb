@@ -39,7 +39,9 @@ const toggleLikePost = () => {
     setlikePost(0);
   };
     return<Container >
-        <Likebutton src={HeartLike}  style={{backgroundColor: likePost === active ? "red" : ""}} onClick={() => {toggleLikePost(true)}}></Likebutton>
+        <Likebutton src={HeartLike} 
+        //  style={{backgroundColor: likePost === active ? "red" : ""}} onClick={() => {toggleLikePost(true)}}
+         ></Likebutton>
         <TextCont>{LikeNumber}</TextCont>
     </Container>
 }
