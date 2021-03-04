@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import HeartLike from '../../Images/heart.svg'
 
 
 
@@ -18,6 +19,9 @@ font-size:14px;
 
 const Image = styled.img`
 cursor:pointer;
+width:14pt;
+height:17pt;
+
 `;
 
 const TextCont = styled.div`
@@ -25,10 +29,16 @@ margin:5pt;
 `;
 
 
-const LikeTag = ({LikeClick, LikeLogo, LikeNumber}) => {
 
-    return<Container onClick={LikeClick}>
-        <Image src={LikeLogo}></Image>
+const LikeTag = ({LikeClick, LikeLogo, LikeNumber}) => {
+    const [likePost, setlikePost] = useState(false);
+
+const toggleLikePost = () => {
+    console.log("Liked")
+    setlikePost(likePost ? false : true);
+  };
+    return<Container >
+        <Image src={HeartLike} onClick={toggleLikePost}></Image>
         <TextCont>{LikeNumber}</TextCont>
     </Container>
 }
