@@ -1,6 +1,7 @@
 import React from 'react';
 
-import SkillTag from '../comps/SkillTag'
+import SkillTag from '../comps/SkillTag';
+import LikeTag from '../comps/LikeTag';
 
 
 
@@ -9,4 +10,5 @@ export default {
 };
 
 export const SimpleSkillTag = () => <SkillTag />
+export const SimpleLikeTag = () => <LikeTag />
 

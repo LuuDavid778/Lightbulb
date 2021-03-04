@@ -21,7 +21,7 @@ margin:5pt;
 `;
 
 
-const LikeTag = ({HandleClick, BgColor, SkillText, SkillImg}) => {
+const LikeTag = ({HandleClick, BgColor, LikeLogo, LikeNumber}) => {
 
     return<Container BgColor={BgColor} onClick={HandleClick}>
         <Image src={LikeLogo}></Image>
@@ -32,7 +32,7 @@ const LikeTag = ({HandleClick, BgColor, SkillText, SkillImg}) => {
 
 LikeTag.defaultProps = {
     LikeNumber: 120,
-    SkillImg: "./ReactLogo.png",
+    LikeLogo: "./ReactLogo.png",
 }
 
 export default LikeTag; 
