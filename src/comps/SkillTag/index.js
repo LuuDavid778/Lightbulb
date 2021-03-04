@@ -14,7 +14,10 @@ font-family: 'Poppins', sans-serif;
 font-size:14px;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+object-fit: cover;
+
+`;
 
 const TextCont = styled.div`
 margin:5pt;
@@ -30,8 +33,8 @@ const SkillTag = ({HandleClick, BgColor, SkillText, SkillImg}) => {
 }
 
 SkillTag.defaultProps = {
-    SkillText: "React Beginner",
-    SkillImg: "./ReactLogo.png",
+    SkillText: "Interest here",
+    SkillImg : "./ReactLogo.png",
 }
 
 export default SkillTag; 

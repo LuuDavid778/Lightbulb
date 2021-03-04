@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+
 
 const Container = styled.div`
 display:flex;
@@ -14,16 +16,18 @@ font-family: 'Poppins', sans-serif;
 font-size:14px;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+cursor:pointer;
+`;
 
 const TextCont = styled.div`
 margin:5pt;
 `;
 
 
-const LikeTag = ({HandleClick, BgColor, LikeLogo, LikeNumber}) => {
+const LikeTag = ({LikeClick, LikeLogo, LikeNumber}) => {
 
-    return<Container BgColor={BgColor} onClick={HandleClick}>
+    return<Container onClick={LikeClick}>
         <Image src={LikeLogo}></Image>
         <TextCont>{LikeNumber}</TextCont>
     </Container>
