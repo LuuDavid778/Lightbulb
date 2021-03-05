@@ -52,7 +52,7 @@ background: #F9EDFF;
 border-radius: 5px;
 font-family: 'Poppins', sans-serif;
 font-size:13px;
-color: #929292;
+color: black;
 
 `;
 
@@ -66,6 +66,10 @@ background: #7468A7;
 border-radius: 5px;
 color:white;
 font-family: 'Poppins', sans-serif;
+
+hover{
+    border: 1px solid white;
+}
 `;
 
 
