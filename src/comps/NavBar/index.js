@@ -22,9 +22,8 @@ import {
 
 
 const NavWrapper = styled.div`
-    align-items: center;
-    display: flex;
-    justify-content: center;
+position:fixed;
+bottom:20pt;
 `;
 
 const NavBG = styled.div`
