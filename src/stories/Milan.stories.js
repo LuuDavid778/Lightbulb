@@ -6,6 +6,7 @@ import PostCaption from '../comps/PostCaption';
 import CommentPrompt from '../comps/CommentPrompt';
 import AvatarSelect from '../comps/AvatarSelect';
 import Login from '../comps/Login';
+import Button from '../comps/Button';
 
 
 
@@ -19,4 +20,5 @@ export const SimplePostCaption = () => <PostCaption/>
 export const SimpleCommentPrompt = () => <CommentPrompt/>
 export const SimpleAvatarSelect = () => <AvatarSelect/>
 export const SimpleLoginForm = () => <Login/>
+export const SimpleButton = () => <Button/>
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 // import Logo from './logo.svg';
+import Button from '../../comps/Button';
+import './LandingPage.scss';
  
 
 const AppTitle = styled.div`
@@ -43,6 +45,10 @@ const LandingPage = () => {
      <AppTitle>LIGHTBULB</AppTitle>
     <FooterContents>
         <LoginSignupPrompt> Login or signup and jump into the action!</LoginSignupPrompt>
+        <div className="Buttons">
+        <Button text="Login"></Button>
+        <Button text="Signup"></Button>
+        </div>
     </FooterContents>
  </div>
 }
