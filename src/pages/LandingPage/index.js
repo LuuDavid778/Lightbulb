@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Logo from './logo.svg';
+// import Logo from './logo.svg';
  
 
 const AppTitle = styled.div`
@@ -15,10 +15,28 @@ margin-top: 42px;
 align-self:center;
 `;
 
+const LoginSignupPrompt = styled.div`
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+color: #7468A7;
+margin-left: 43px ;
+// margin-top: 42px;
+align-self:center;
+`;
+
+const FooterContents = styled.div`
+
+`;
+
 const LandingPage = () => {
  return <div>
      <AppTitle>LIGHTBULB</AppTitle>
-    <Logo></Logo>
+    <FooterContents>
+        <LoginSignupPrompt> Login or signup and jump into the action!</LoginSignupPrompt>
+    </FooterContents>
  </div>
 }
 
