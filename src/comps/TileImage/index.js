@@ -24,12 +24,16 @@ max-width:${props => props.tilewidth ? props.tilewidth : "344px"};
 border-radius: 10px;
 `;
 
-const TileImage = ({url, width, height}) => {
+const Image = styled.img`
+height:${props => props.imageheight ? props.imageheight : "308px"}; 
+`;
+
+const TileImage = ({url, width, height, imageheight}) => {
 
     return <Container tilewidth={width} tileheight={height}>
         <Content tilewidth={width} tileheight={height}>
         </Content>
-        <img src={url}></img>
+        <Image imageheight={imageheight} src={url}></Image>
     </Container>
 }
 
