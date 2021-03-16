@@ -126,7 +126,7 @@ const LoginPass = ({title, input, placeholder, PassCheck}) => {
             }}
         placeholder={placeholder}
         />
-        <ViewPass src={Eye} onClick={togglePasswordVisiblity}></ViewPass>
+        {/* <ViewPass src={Eye} onClick={togglePasswordVisiblity}></ViewPass> */}
         <TextCont PassCheck={PassCheck}>
             <TextField>
                 <PassConfirm style={{backgroundColor: containsChar === true ? "#737373" : "#B8B8B8"}}></PassConfirm>
@@ -134,11 +134,11 @@ const LoginPass = ({title, input, placeholder, PassCheck}) => {
             </TextField>
             <TextField>
                 <PassConfirm style={{backgroundColor: containsCap === true ? "#737373" : "#B8B8B8"}}></PassConfirm>
-                <Text>Atleast one capital letter</Text>
+                <Text>At least one capital letter</Text>
             </TextField>
             <TextField>
                 <PassConfirm style={{backgroundColor: containsNum === true ? "#737373" : "#B8B8B8"}}></PassConfirm>
-                <Text>Atleast one number</Text>
+                <Text>At least one number</Text>
             </TextField>
         </TextCont>
     </Container>
