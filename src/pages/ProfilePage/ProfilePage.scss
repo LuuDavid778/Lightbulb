@@ -1,0 +1,72 @@
+.app{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    h3{
+        color:#7468A7;
+    }
+}
+
+.backbutton {
+    margin-left:20px;
+}
+
+.headerdiv{
+width:100vw;
+max-width: 375px;
+min-height: 220px;
+background-color: #B086F7;
+border-radius: 0px 0px 63px 52px;
+display: flex;
+flex-direction: column;
+padding-top:20px;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top:-30px;
+}
+
+.user{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    h3 {
+        color: white;
+        margin-bottom: 10px;
+    }
+}
+
+.profilepicture{
+    max-width: 69px;
+    height: 69px;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.profile-subdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:10px;
+}
+
+.content{
+    margin-left: 10px;
+    margin-right:10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.content-header{
+    margin-right:250px;
+}
+
