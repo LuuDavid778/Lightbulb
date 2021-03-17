@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import blackicon from '../../Images/back-b.png';
+import whiteicon from '../../Images/back-w.png';
 
 
 const Container = styled.div`
@@ -18,7 +20,7 @@ const Image = styled.img``;
 const BackButton = ({HandleClick, BgColor, Arrow}) => {
 
     return<Container BgColor={BgColor} onClick={HandleClick}>
-        <Image src="../../Images/back-b.png"></Image>
+        <Image src={whiteicon}></Image>
     </Container>
 }
 

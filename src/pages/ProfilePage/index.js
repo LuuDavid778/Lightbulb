@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import BackButton from '../../comps/BackButton';
 import './ProfilePage.scss';
 import MyPostTile from '../../comps/MyPostTile'
-
+import NavBar from '../../comps/NavBar';
 const EditButton = styled.button`
 width:100%;
 max-width: 87px;
@@ -19,6 +19,12 @@ color:#7468A7;
 font-family:Poppins;
 `;
 
+
+const Footer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`;
 
 
 export default function ProfilePage({pfp, username}){
@@ -45,9 +51,14 @@ export default function ProfilePage({pfp, username}){
 
       </div>
 
-
+      <Footer>
+<NavBar focused={1}></NavBar>
+</Footer>
 
         </div>
+
+
+
 
 }
 

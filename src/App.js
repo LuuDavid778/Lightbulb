@@ -15,11 +15,25 @@ import Loading from '../src/pages/Loading';
 import Login from '../src/pages/Login';
 import ExpandedMedia from '../src/pages/ExpandedMedia';
 import SignUp from '../src/pages/SignUp';
+import EditPage from './pages/EditPage';
 
 function App() {
   return (
     <Router>
       <Switch>
+
+      <Route exact path="/login">
+           <Login></Login>
+      </Route>
+
+      <Route exact path="/">
+           <Home></Home>
+      </Route>
+
+      <Route exact path="/setting">
+           <AccountSettings></AccountSettings>
+      </Route>
+
         <Route exact path="/post">
            <ExpandedPostPage></ExpandedPostPage>
       </Route>
@@ -36,9 +50,12 @@ function App() {
         <SignUp></SignUp>
       </Route>
 
+      <Route exact path ="/edit">
+      <EditPage></EditPage>
+      </Route>
+
       </Switch>
     </Router>
-      // <ProfilePage></ProfilePage>
     );
 }
 

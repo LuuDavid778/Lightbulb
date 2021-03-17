@@ -1,4 +1,4 @@
-.uploadpage {
+.EditPage {
     width:100vw;
     height:100vh;
     display:flex;
@@ -28,18 +28,18 @@ color:#7468A7;
     margin-top:-10px;
 }
 
-.uploadpage_header{
+.EditPage_header{
     display: flex;
     margin-left: 10px;
     margin-right:10px;
 }
 
-.uploadpage_backbutton {
+.EditPage_backbutton {
     margin-top:20px;
     
 }
 
-.uploadpage_buttondiv {
+.EditPage_buttondiv {
     position:fixed;
     bottom:30pt;
     display:flex;
@@ -47,3 +47,26 @@ color:#7468A7;
     width:100vw;
 }
 
+.form_dropdown{
+    position: relative;
+    right:10px;
+    width:264px;
+    display:flex;
+    flex-direction: column;
+    margin-bottom:10px;
+h3 {
+    font-family: Poppins;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 33px;
+letter-spacing: 0em;
+text-align: left;
+color: #7468A7;
+margin:0px;
+margin-bottom:10px;
+
+
+}
+
+}
