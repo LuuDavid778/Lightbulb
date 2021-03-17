@@ -7,7 +7,8 @@ import PostAuthorTag from '../PostAuthorTag';
 
 const Container = styled.div`
 overflow:hidden;
-
+height:308px;
+margin-bottom:10px;
 `;
 
 const ButtonDiv = styled.div`
@@ -17,7 +18,8 @@ justify-content:center;
 position:relative;
 max-width:140px;
 left:195px;
-bottom:70px;
+bottom:80px;
+
 `;
 
 

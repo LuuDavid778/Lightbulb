@@ -10,6 +10,9 @@ border-radius:10px;
 padding-left:20px;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 padding-bottom:20px;
+background-color:white;
+box-sizing:border-box;
+margin-bottom:10px;
 `;
 
 

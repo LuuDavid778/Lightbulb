@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+
 const Container = styled.div`
 display:flex;
 align-items:center;
@@ -17,11 +18,12 @@ const Image = styled.img``;
 const BackButton = ({HandleClick, BgColor, Arrow}) => {
 
     return<Container BgColor={BgColor} onClick={HandleClick}>
-        <Image src={Arrow}></Image>
+        <Image src="../../Images/back-b.png"></Image>
     </Container>
 }
 
 BackButton.defaultProps = {
+    Arrow:""
 }
 
 export default BackButton;

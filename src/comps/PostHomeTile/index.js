@@ -7,7 +7,6 @@ import PostAuthorTag from '../PostAuthorTag';
 
 const Container = styled.div`
 overflow:hidden;
-
 `;
 
 const ButtonDiv = styled.div`
