@@ -17,6 +17,8 @@ import ExpandedMedia from '../src/pages/ExpandedMedia';
 import SignUp from '../src/pages/SignUp';
 import EditPage from './pages/EditPage';
 
+
+
 function App() {
   return (
     <Router>
@@ -52,7 +54,7 @@ function App() {
 
       <Route exact path ="/edit">
       <EditPage></EditPage>
-      </Route>
+      </Route>  
 
       </Switch>
     </Router>

@@ -28,19 +28,19 @@ font-family: 'Poppins', sans-serif;
 font-weight:400;
 `;
 
-const LoginInput = ({title, input, placeholder}) => {
+const LoginInput = ({title, input, placeholder, onChange,type}) => {
 
     return<Container>
         <Title>{title}</Title>
-        <TextInput type='text' placeholder={placeholder} onChange={(e)=>{
-            input(e.target.value);
-        }}/>
+        <TextInput type={type} placeholder={placeholder} onChange={onChange}/>
     </Container>
 }
 
 LoginInput.defaultProps = {
+    type:"text",
     title:"DEFAULT TITLE",
-    placeholder:"Default Placeholder" 
+    placeholder:"Default Placeholder",
+    onChange:()=>{}
 }
 
 export default LoginInput;
