@@ -4,9 +4,12 @@ import TileButton from '../TileButton';
 import TileImage from '../TileImage';
 import PostAuthorTag from '../PostAuthorTag';
 
+import LikeTag from '../../comps/LikeTag';
+
 
 const Container = styled.div`
-overflow:hidden;
+display: inline-block;
+align-items:center;
 `;
 
 const ButtonDiv = styled.div`
@@ -24,33 +27,38 @@ const HeaderDiv = styled.div`
 display:flex;
 flex-direction:column;
 position: relative;
-bottom:80px;
-left:15px;
-width:300px;
-overflow:hidden;    
-
+bottom:60px;
+width:165px;
+overflow:hidden;
 `;
 
 const Header = styled.div`
-font-size:20px;
+font-size:14px;
 color:white;
 `;
 
 const Category = styled.div`
-font-size:13px;
+font-size:12px;
 color:#67FCF3;
 `;
 
 const HeaderTag = styled.div`
 position:relative;
-bottom:340px;
-left:110px;
+bottom:230px;
+left:20px;
+max-width:130px;
+`;
+
+const LikeContainer = styled.div`
+position:relative;
+top:-90pt;
+left:65pt;
 `;
 
 const PostHomeTile = ({title, category, url}) => {
 
     return <Container>
-      <TileImage width="244px" url={url}></TileImage>
+      <TileImage width="165px" height="208px" imageheight="208px" url={url}></TileImage>
       <HeaderDiv>
     <Header>{title}</Header>
     <Category>{category}</Category>
@@ -58,6 +66,9 @@ const PostHomeTile = ({title, category, url}) => {
       <HeaderTag>
 <PostAuthorTag></PostAuthorTag>
 </HeaderTag>
+{/* <LikeContainer>
+  <LikeTag></LikeTag>
+</LikeContainer> */}
     </Container>
 }
 

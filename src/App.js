@@ -9,6 +9,13 @@ import {
 } from "react-router-dom";
 
 
+import Home from '../src/pages/Home';
+import AccountSettings from '../src/pages/AccountSettings';
+import Loading from '../src/pages/Loading';
+import Login from '../src/pages/Login';
+import ExpandedMedia from '../src/pages/ExpandedMedia';
+import SignUp from '../src/pages/SignUp';
+
 function App() {
   return (
     <Router>
@@ -23,6 +30,10 @@ function App() {
 
       <Route exact path= "/upload">
         <UploadPage></UploadPage>
+      </Route>
+
+      <Route exact path= "/signup">
+        <SignUp></SignUp>
       </Route>
 
       </Switch>
