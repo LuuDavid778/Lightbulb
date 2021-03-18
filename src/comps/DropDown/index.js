@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 import Arrow from '../../Images/dropdown.png';
 
@@ -36,9 +37,14 @@ position:absolute;
 const Image = styled.img`
 position:relative;
 left:35px;
+transition:0.2s;
 `;
 
-const DropDown = ({}) => {
+const DropDown = ({selected, all, frontend, backend, uiux, graphic, illustration}) => {
+
+    const [allSubjects, setallSubjects] = useState([]);
+    const [current, setCurrent] = useState(1);
+    const [open, setOpen] = useState(false);
 
     const HandleDropDown = () => {
         if (open === false){
@@ -46,9 +52,18 @@ const DropDown = ({}) => {
         } else {
             setOpen(false)
         }
-        }
+    }
 
-    const [open, setOpen] = useState(false);
+    // const GetSubjects = async () => {
+    //     var resp = await axios.get("http://localhost:8080/api/allSubjects");
+    //     var arr = resp.data.subjects;
+    //     setallSubjects(arr);
+    //     console.log(arr)
+    //   }
+
+    useEffect(() => {
+        // GetSubjects();
+    },[]);
 
     return <Container>
       <Button onClick={HandleDropDown}>
@@ -56,10 +71,15 @@ const DropDown = ({}) => {
         <Image style={{transform: open == true ? "rotate(0deg)" : "rotate(-90deg)"}} src={Arrow}></Image>
       </Button>
       <Box style={{display: open == true ? "block" : "none"}}>
-          <Topic>Graphic Design</Topic>
-          <Topic>Illustration</Topic>
-          <Topic>UI/UX Design</Topic>
-          <Topic>Front-end Development</Topic>
+          <Topic onClick={all}>All</Topic>
+          <Topic onClick={frontend}>Frontend Development</Topic>
+          <Topic onClick={backend}>Backend Development</Topic>
+          <Topic onClick={uiux}>UI/UX Design</Topic>
+          <Topic onClick={graphic}>Graphic Design</Topic>
+          <Topic onClick={illustration}>Illustration</Topic>
+      {/* {allSubjects.map(o=>{
+                    return <Topic onClick={current == o.id} onClick={()=>{setCurrent(selected);}}>{o.Title}</Topic>
+                    })} */}
       </Box>
     </Container>
 }
