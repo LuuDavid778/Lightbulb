@@ -1,0 +1,49 @@
+.uploadpage {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+
+
+    h2 {
+        text-align: center;
+font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: 33px;
+letter-spacing: 0em;
+color:#7468A7;
+
+    }
+
+   
+}
+
+.form {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top:-10px;
+}
+
+.uploadpage_header{
+    display: flex;
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+.uploadpage_backbutton {
+    margin-top:20px;
+    
+}
+
+.uploadpage_buttondiv {
+    position:fixed;
+    bottom:30pt;
+    display:flex;
+    justify-content:space-evenly;
+    width:100vw;
+}
+

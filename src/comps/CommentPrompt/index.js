@@ -16,6 +16,7 @@ font-family: 'Poppins', sans-serif;
 font-size:14px;
 display:grid;
 flex-direction: column;
+box-sizing:border-box;
 `;
 
 const AvatarHeader = styled.div`

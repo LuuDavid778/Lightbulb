@@ -16,9 +16,9 @@ cursor:pointer;
 `;
 
 const Checkmark = styled.img`
+display:${props=>props.Check ? props.Check : "block"};
 width:25px;
 height:25px;
-display:flex;
 position:relative;
 top:-100px;
 left:80px;
@@ -27,12 +27,10 @@ left:80px;
 
 
 
-const AvatarSelect = ({onClick}) => {
-    return<Container>
-    
+const AvatarSelect = ({onClick, Check}) => {
+    return<Container onClick={onClick}>
         <AvatarImg src={Avatar1}></AvatarImg> 
-        <Checkmark src={SelectedIcon}></Checkmark>
-   
+        <Checkmark Check={Check} src={SelectedIcon}></Checkmark>
     </Container>
 }
 
