@@ -30,6 +30,7 @@ position: relative;
 bottom:60px;
 width:165px;
 overflow:hidden;
+margin-left:10px;
 `;
 
 const Header = styled.div`
