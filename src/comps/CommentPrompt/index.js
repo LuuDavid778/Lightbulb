@@ -75,7 +75,7 @@ hover{
 
 
 
-const CommentPrompt = ({Placeholder, NameTxt, LikeNumber}) => {
+const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick}) => {
     return<Container>
     <AvatarHeader>
         <AvatarImg >  </AvatarImg>
@@ -83,9 +83,9 @@ const CommentPrompt = ({Placeholder, NameTxt, LikeNumber}) => {
        
     </AvatarHeader>
 
-    <CommentBox placeholder={Placeholder}></CommentBox>
+    <CommentBox placeholder={Placeholder} onChange={onChange}></CommentBox>
 
-    <PostButton>Post</PostButton>
+    <PostButton onClick={onClick}>Post</PostButton>
     </Container>
 }
 

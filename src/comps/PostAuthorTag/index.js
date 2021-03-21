@@ -10,7 +10,7 @@ max-width: ${props=> props.width ? props.width : "130px"};
 border-radius: 21px;
 background-color:${props => props.bgcolor ? props.bgcolor : "red"};
 color:${props => props.color ? props.color : "white"};
-display:flex;
+display:${props => props.display ? props.display: "flex"};
 justify-content:center;
 align-items:center;
 `;
@@ -31,9 +31,9 @@ height:40px;
 border-radius:50px;
 margin-right:10px;
 `;
-const PostAuthorTag = ({bgcolor, color, username, url, width}) => {
+const PostAuthorTag = ({bgcolor, color, username, url, width, display}) => {
 
-    return<Container width={width} bgcolor={bgcolor} color={color}>
+    return<Container display={display}width={width} bgcolor={bgcolor} color={color}>
         <Content>
         <Image src={url}></Image>
         <Username>{username}</Username>
@@ -45,7 +45,7 @@ PostAuthorTag.defaultProps = {
     bgcolor:"white",
     color:"black",
     username: "Default Name",
-    url: "https://placekeanu.com/26/26"
+    url: "https://placekeanu.com/26/26",
 }
 
 export default PostAuthorTag;

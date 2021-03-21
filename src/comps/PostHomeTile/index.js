@@ -32,7 +32,7 @@ width:165px;
 overflow:hidden;
 margin-left:10px;
 `;
-
+  
 const Header = styled.div`
 font-size:14px;
 color:white;

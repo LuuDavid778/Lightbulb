@@ -49,9 +49,9 @@ position:relative;
 bottom:360px;
 left:205px;
 `;
-const MyPostTile = ({title, category, url}) => {
+const MyPostTile = ({title, category, url, onClick}) => {
 
-    return <Container>
+    return <Container onClick={onClick}>
       <TileImage url={url}></TileImage>
       <HeaderDiv>
     <Header>{title}</Header>

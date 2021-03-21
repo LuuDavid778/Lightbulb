@@ -45,7 +45,7 @@ font-weight:500;
 `;
 
 
-const FormDropDown = ({}) => {
+const FormDropDown = ({category, setCat}) => {
 
     const HandleDropDown = () => {
         if (open === false){
@@ -57,16 +57,32 @@ const FormDropDown = ({}) => {
 
     const [open, setOpen] = useState(false);
 
+
     return <Container>
       <Button onClick={HandleDropDown}>
-          <Label>Categories</Label>
+          <Label>{category}</Label>
         <Image style={{transform: open == true ? "rotate(0deg)" : "rotate(-90deg)"}} src={Arrow}></Image>
       </Button>
       <Box style={{display: open == true ? "block" : "none"}}>
-          <Topic>Graphic Design</Topic>
-          <Topic>Illustration</Topic>
-          <Topic>UI/UX Design</Topic>
-          <Topic>Front-end Development</Topic>
+          <Topic onClick={()=>{ 
+              setCat("Graphic Design")
+              setOpen(false);
+          }}>Graphic Design</Topic>
+          <Topic onClick={()=>{ 
+              setCat("Illustration")
+              setOpen(false);
+
+          }}>Illustration</Topic>
+          <Topic onClick={()=>{ 
+              setCat("UI/UX Design")
+              setOpen(false);
+
+          }}>UI/UX Design</Topic>
+          <Topic onClick={()=>{ 
+              setCat("Front-end Development")
+              setOpen(false);
+
+          }}>Front-end Development</Topic>
       </Box>
     </Container>
 }

@@ -32,7 +32,6 @@ margin-bottom:100px;
 `;
 
 const Home = () => {
-
     const [allPosts, setallPosts] = useState([]);
     const [subjectNum, setSubjectNum] = useState(0);
 
@@ -49,12 +48,15 @@ const Home = () => {
         console.log(arr)
       }
 
+
+
+    
     useEffect(()=>{
         GetPosts();
     },[])
     
     return <div>
-        <TopBar></TopBar>
+        <TopBar placeholder="Search Posts"></TopBar>
         <Title>Frontend Development</Title>
         <ContentContainer>
                 {allPosts.map(o=>{

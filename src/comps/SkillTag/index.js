@@ -24,17 +24,15 @@ margin:5pt;
 `;
 
 
-const SkillTag = ({HandleClick, BgColor, SkillText, SkillImg}) => {
+const SkillTag = ({HandleClick, BgColor, category}) => {
 
     return<Container BgColor={BgColor} onClick={HandleClick}>
-        <Image src={SkillImg}></Image>
-        <TextCont>{SkillText}</TextCont>
+        <TextCont>{category}</TextCont>
     </Container>
 }
 
 SkillTag.defaultProps = {
-    SkillText: "Interest here",
-    SkillImg : "./ReactLogo.png",
+   category: "Interest here",
 }
 
 export default SkillTag; 
