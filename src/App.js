@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import axios from 'axios'
 
 
 import Home from '../src/pages/Home';
@@ -20,32 +21,39 @@ import EditPage from './pages/EditPage';
 
 
 function App() {
+
+  const token = sessionStorage.getItem("token");
+  if(token){
+    axios.defaults.headers.common['Authorization'] = "Bearer " + token
+  }
+
   return (
     <Router>
       <Switch>
+      <Route exact path="/">
+           <Home></Home>
+      </Route>
+
 
       <Route exact path="/login">
            <Login></Login>
       </Route>
 
-      <Route exact path="/">
-           <Home></Home>
-      </Route>
 
-      <Route exact path="/setting">
-           <AccountSettings></AccountSettings>
-      </Route>
-
-        <Route exact path="/post">
-           <ExpandedPostPage></ExpandedPostPage>
+      <Route exact path= "/upload">
+        <UploadPage></UploadPage>
       </Route>
 
       <Route exact path= "/myprofile">
         <ProfilePage></ProfilePage>
       </Route>
 
-      <Route exact path= "/upload">
-        <UploadPage></UploadPage>
+      <Route exact path="/settings">
+           <AccountSettings></AccountSettings>
+      </Route>
+
+      <Route exact path="/post/:id">
+           <ExpandedPostPage></ExpandedPostPage>
       </Route>
 
       <Route exact path= "/signup">

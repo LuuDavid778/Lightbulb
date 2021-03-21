@@ -6,9 +6,31 @@ import FormInput from '../../comps/FormInput'
 import UploadImage from '../../comps/UploadImage';
 import Button from '../../comps/Button';
 import FormDropDown from '../../comps/FormDropDown';
-
+import {useHistory} from 'react-router-dom';
 
 export default function EditPage(){
+    const history = useHistory();
+    const [title, setTitle] = useState("");
+    const [desc, setDesc] = useState("")
+    const [category, setCat] = useState("Category")
+    const [img, setImg] = useState()
+
+    const handleUpload = async event => {
+        event.preventDefault()
+        console.log(title)
+
+        const data = new FormData()
+        data.append("Image", img)
+        data.append('Title', title)
+        data.append("Description", desc)
+        data.append("Category", category)
+
+        let resp = await axios.post("http://localhost:8080/api/updatePost/", data)
+        console.log(resp.data)
+    }
+
+
+
     return <div className="EditPage">
         <div className="EditPage_header">
           <div className="EditPage_backbutton"><BackButton></BackButton></div>

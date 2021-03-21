@@ -69,12 +69,11 @@ const Login = () => {
         console.log(resp.data);
 
         if (resp.data !== "incorrect credentials") {
-            const token = resp.data;
+            const token = resp.data.accessToken;
             sessionStorage.setItem("token", token);
-            axios.defaults.headers.common['Authorization'] = token;
+            axios.defaults.headers.common['Authorization'] = "Bearer " + token;
             console.log("login success" , token)
             history.push("/")
-            
         } else  {   
             setError("Your username/password is incorrect.")
         }
