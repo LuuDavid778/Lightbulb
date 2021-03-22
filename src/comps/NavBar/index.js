@@ -61,18 +61,18 @@ const NavBar = ({focused}) => {
 
     return <NavWrapper>
         <NavBG>
-            {/* <Link to="/home"> */}
+            <Link to="/">
               <NavItem style={{backgroundImage: focusedTab == 1 ? "url(" + HomeC + ")" : "url(" + Home + ")"}} onClick={() => {setFocusedTab(1)}}></NavItem>
-            {/* </Link>
-            <Link to="/create-post"> */}
+           </Link>
+            <Link to="/upload">
               <NavItem style={{backgroundImage: focusedTab == 2 ? "url(" + AddC + ")" : "url(" + Add + ")"}} onClick={() => {setFocusedTab(2)}}></NavItem>
-            {/* </Link>
-            <Link to="/profile"> */}
+            </Link>
+            <Link to="/myprofile"> 
               <NavItem style={{backgroundImage: focusedTab == 3 ? "url(" + ProfileC + ")" : "url(" + Profile + ")"}} onClick={() => {setFocusedTab(3)}}></NavItem>
-            {/* </Link> */}
-            {/* <Link to="/settings"> */}
+            </Link>
+            <Link to="/settings">
               <NavItem style={{backgroundImage: focusedTab == 4 ? "url(" + SettingsC + ")" : "url(" + Settings + ")"}} onClick={() => {setFocusedTab(4)}}></NavItem>
-            {/* </Link> */}
+             </Link> 
         </NavBG>
     </NavWrapper>
 }

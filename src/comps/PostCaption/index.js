@@ -47,22 +47,22 @@ const TextCont = styled.div`
 margin:5pt;
 `;
 
-const PostCaption = ({CaptionTxt, NameTxt, LikeNumber}) => {
+const PostCaption = ({caption, username, LikeNumber}) => {
     return<Container>
     <AvatarHeader>
-        <AvatarImg >  </AvatarImg>
-        <AvatarName>{NameTxt}</AvatarName>
+        <AvatarImg></AvatarImg>
+        <AvatarName>{username}</AvatarName>
        
     </AvatarHeader>
-    <TextCont>{CaptionTxt}</TextCont>
+    <TextCont>{caption}</TextCont>
     </Container>
 }
 
 
 PostCaption.defaultProps = {
     LikeNumber: 120,
-    CaptionTxt: "I spent all night on this for my Web Development class. I used styled.css and react for it. Here are some screenshots of my code. Let me know what you guys think! ",
-    NameTxt:"Joe Le",
+    caption: "I spent all night on this for my Web Development class. I used styled.css and react for it. Here are some screenshots of my code. Let me know what you guys think! ",
+    username:"Joe Le",
 }
 
 export default PostCaption; 

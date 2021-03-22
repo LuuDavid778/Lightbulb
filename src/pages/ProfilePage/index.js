@@ -5,6 +5,7 @@ import BackButton from '../../comps/BackButton';
 import './ProfilePage.scss';
 import MyPostTile from '../../comps/MyPostTile'
 import NavBar from '../../comps/NavBar';
+import {useHistory} from 'react-router-dom';
 const EditButton = styled.button`
 width:100%;
 max-width: 87px;
@@ -26,33 +27,63 @@ align-items: center;
 justify-content: center;
 `;
 
-
+// get joe's help with mapping user's profile
 export default function ProfilePage({pfp, username}){
+    const [myPosts, setMyPost] = useState([])
+    const [user, setUser] = useState({})
+    const history = useHistory()
+
+
+    
+    const HandleMyUser = async() => {
+      let resp = await axios.get(`http://localhost:8080/api/myUser`)
+      console.log("user",resp.data.user[0])
+      setUser(resp.data.user[0])
+    
+    }
+
+    const HandleMyPosts = async() => {
+      let resp = await axios.get(`http://localhost:8080/api/myPosts`)
+      console.log(resp.data.posts)
+      setMyPost(...[resp.data.posts])
+    
+    }
+
+    useEffect(()=>{
+     HandleMyUser()
+     HandleMyPosts()
+    }, [])
+
+
     return <div className="app">
         <div className="headerdiv">
-          <div className="backbutton"><BackButton BgColor="white"></BackButton></div>
+          {/* <div className="backbutton"><BackButton BgColor="white"></BackButton></div> */}
           <div className="header"><h2>My Profile</h2></div>
           <div className="user">
             <img className="profilepicture" src={pfp}></img>
             <div className="profile-subdiv">
-            <h3>{username}</h3>
+            <h3>{user.Username}</h3>
             <EditButton>Edit Profile</EditButton>
             </div>
-          </div>
+          </div>    
         </div>
 
 
         <h3 className="content-header">My Posts</h3>
       <div className="content">
-        <MyPostTile></MyPostTile>
-        <MyPostTile></MyPostTile>
-        <MyPostTile></MyPostTile>
-        <MyPostTile></MyPostTile>
-
+        {myPosts && myPosts.map(o => <MyPostTile display="none"
+        title={o.Title}
+        url={o.ImageURL}      
+        category={o.Category}
+        onClick={()=>{
+          history.push("/post/" + o.id)
+        }}
+        /> )}
+        
       </div>
 
       <Footer>
-<NavBar focused={1}></NavBar>
+<NavBar focused={3}></NavBar>
 </Footer>
 
         </div>

@@ -20,9 +20,9 @@ margin-left: 10px;
 const Image = styled.img``;
 
 
-const BackButton = ({HandleClick, BgColor, Arrow}) => {
+const BackButton = ({onClick, BgColor, Arrow}) => {
 
-    return<Container BgColor={BgColor} onClick={HandleClick}>
+    return<Container BgColor={BgColor} onClick={onClick}>
         <Image src={whiteicon}></Image>
     </Container>
 }
