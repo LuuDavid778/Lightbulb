@@ -49,7 +49,20 @@ export default function ProfilePage({pfp, username}){
     
     }
 
+    const CheckToken = async () => {
+      const token = await sessionStorage.getItem("token");
+      console.log("token", token);
+      if(token){
+          axios.defaults.headers.common['Authorization'] = token;
+      } else{
+          history.push("/login");
+      }
+  }
+
+
+
     useEffect(()=>{
+      CheckToken();
      HandleMyUser()
      HandleMyPosts()
     }, [])

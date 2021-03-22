@@ -66,68 +66,66 @@ margin-right:5pt;
 
 //#737373
 
-const LoginPass = ({title, input, placeholder, PassCheck}) => {
+const LoginPass = ({title, input, placeholder, PassCheck, onChange}) => {
 
-    const [passwordShown, setPasswordShown] = useState(false);
+    // const [passwordShown, setPasswordShown] = useState(false);
 
-    const [containsChar, setChar] = useState(false);
-    const [containsCap, setCap] = useState(false);
-    const [containsNum, setNum] = useState(false);
-    const [allValid, setAllValid] = useState(false);
+    // const [containsChar, setChar] = useState(false);
+    // const [containsCap, setCap] = useState(false);
+    // const [containsNum, setNum] = useState(false);
+    // const [allValid, setAllValid] = useState(false);
 
     
     const [password, setPassword] = useState("")
 
-    const togglePasswordVisiblity = () => {
-        console.log("test")
-        setPasswordShown(passwordShown ? false : true);
-      };
+    // const togglePasswordVisiblity = () => {
+    //     console.log("test")
+    //     setPasswordShown(passwordShown ? false : true);
+    //   };
 
-    const validatePassword = () => {
-        // for (var i = 0; i < password.length; i++){
-        //     console.log("pog" + password.charAt(i))
+    // const validatePassword = () => {
+    //     // for (var i = 0; i < password.length; i++){
+    //     //     console.log("pog" + password.charAt(i))
 
-        // }
-        if (password.length >= 8){
-            setChar(true)
-        } else {
-            setChar(false)
-        }
-        if (/\d/.test(password)){
-            setNum(true)
-        } else {
-            setNum(false)
-        }
-        if (/[A-Z]/.test(password)){
-            setCap(true)
-        } else {
-            setCap(false)
-        }
-        if (containsChar && containsCap && containsNum) {
-            setAllValid(true)
-            console.log("yes" + password)
-        } else {
-            setAllValid(false)
-            console.log("no" + password)
-        }
-    }
+    //     // }
+    //     if (password.length >= 8){
+    //         setChar(true)
+    //     } else {
+    //         setChar(false)
+    //     }
+    //     if (/\d/.test(password)){
+    //         setNum(true)
+    //     } else {
+    //         setNum(false)
+    //     }
+    //     if (/[A-Z]/.test(password)){
+    //         setCap(true)
+    //     } else {
+    //         setCap(false)
+    //     }
+    //     if (containsChar && containsCap && containsNum) {
+    //         setAllValid(true)
+    //         console.log("yes" + password)
+    //     } else {
+    //         setAllValid(false)
+    //         console.log("no" + password)
+    //     }
+    // }
 
-    useEffect(() => {
-        validatePassword();
-    },[password]);
-
+    // useEffect(() => {
+    //     validatePassword();
+    // },[password]);
+ 
     return<Container>
         <Title>{title}</Title>
         <TextInput
-        type={passwordShown ? "text" : "password"}
-        value={password}
-        onChange={
-            (e)=>{setPassword(e.target.value)
-            }}
+        // type={passwordShown ? "text" : "password"}
+        type="password"
+        onChange={onChange}
         placeholder={placeholder}
         />
         {/* <ViewPass src={Eye} onClick={togglePasswordVisiblity}></ViewPass> */}
-        <TextCont PassCheck={PassCheck}>
+        {/* <TextCont PassCheck={PassCheck}>
             <TextField>
                 <PassConfirm style={{backgroundColor: containsChar === true ? "#737373" : "#B8B8B8"}}></PassConfirm>
                 <Text>8 characters minimum</Text>
@@ -140,7 +138,7 @@ const LoginPass = ({title, input, placeholder, PassCheck}) => {
                 <PassConfirm style={{backgroundColor: containsNum === true ? "#737373" : "#B8B8B8"}}></PassConfirm>
                 <Text>At least one number</Text>
             </TextField>
-        </TextCont>
+        </TextCont> */}
     </Container>
 }
 

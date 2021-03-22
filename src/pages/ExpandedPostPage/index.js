@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import styled from 'styled-components';
 import './ExpandedPostPage.scss';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import BackButton from '../../comps/BackButton';
 import SkillTag from '../../comps/SkillTag';
 import PostCaption from '../../comps/PostCaption';
@@ -11,15 +11,26 @@ import Comment from '../../comps/Comment';
 
 
     export default function ExpandedPostPage(){
-
+        
+        const history = useHistory();
         const params = useParams()
         const [post, setPost] = useState({})
         const [comments, setComments] = useState([])
         const [userComment, setUComment] = useState("")
 
+        const CheckToken = async () => {
+            const token = await sessionStorage.getItem("token");
+            console.log("token", token);
+            if(token){
+                console.log(token)
+                axios.defaults.headers.common['Authorization'] = token;
+            } else{
+                history.push("/login");
+            }
+        }
+
         const HandlePost = async() =>{
             let resp = await axios.get(`http://localhost:8080/api/singlePost/${params.id}`)
-            
             setPost(resp.data.post[0])
             console.log(post)
         }
@@ -40,6 +51,7 @@ import Comment from '../../comps/Comment';
         }
 
         useEffect(()=>{
+            CheckToken();
             HandlePost()
             GetAllComments();
         },[])

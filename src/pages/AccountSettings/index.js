@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import {useHistory} from 'react-router-dom';
 import BackButton from '../../comps/BackButton';
 import BackArrow from '../../Images/back-w.png';
 import AvatarSelect from '../../comps/AvatarSelect';
@@ -43,7 +43,7 @@ width:100vw;
 const AccountSettings = () => {
     const [username, setUsername]= useState("");
     const [user, setUser] = useState({})
-
+    const history = useHistory();
     const HandleMyUser = async() => {
         let resp = await axios.get(`http://localhost:8080/api/myUser`)
         console.log("user",resp.data.user[0])
@@ -51,6 +51,16 @@ const AccountSettings = () => {
       
       }
   
+      const CheckToken = async () => {
+        const token = await sessionStorage.getItem("token");
+        console.log("token", token);
+        if(token){
+            axios.defaults.headers.common['Authorization'] = token;
+        } else{
+            history.push("/login");
+        }
+    }
+
 
     const handleNameChange = async () => {
         let resp = await axios.patch("http://localhost:8080/api/updateUser", {Username:username})
@@ -60,6 +70,7 @@ const AccountSettings = () => {
 
 
     useEffect(()=>{
+        CheckToken();
         HandleMyUser();
     },[])
  return <div>

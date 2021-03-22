@@ -23,17 +23,18 @@ const HeaderLogoImg = styled.img`
 `;
 
 
-const TopBar = ({bgimg, width, height, placeholder}) => {
+const TopBar = ({bgimg, width, height, placeholder, onChange}) => {
 
     return <TopBarContainer width={width} height={height}>
-            <SearchBar placeholder={placeholder}> </SearchBar>
+            <SearchBar placeholder={placeholder} onChange={onChange}> </SearchBar>
             <HeaderLogoImg src={bgimg}></HeaderLogoImg>     
         </TopBarContainer>
 }
 
 TopBar.defaultProps = {
     bgimg : "./headerlogo.png",
-    placeholder:"Default Placeholder"
+    placeholder:"Default Placeholder",
+    onChange:()=>{} 
 }
 
 export default TopBar;
