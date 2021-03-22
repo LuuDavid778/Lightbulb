@@ -17,7 +17,7 @@ import Login from '../src/pages/Login';
 import ExpandedMedia from '../src/pages/ExpandedMedia';
 import SignUp from '../src/pages/SignUp';
 import EditPage from './pages/EditPage';
-// import LandingPage from '../src/pages/LandingPage';
+import LandingPage from '../src/pages/LandingPage';
 import SignupAvatar from '../src/pages/SignupAvatar';
 
 
@@ -31,6 +31,10 @@ function App() {
   return (
     <Router>
       <Switch>
+
+        <Route exact path="/welcome">
+          <LandingPage></LandingPage>
+        </Route>
       <Route exact path="/">
            <Home></Home>
       </Route>
