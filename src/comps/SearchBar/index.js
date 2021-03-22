@@ -26,12 +26,12 @@ background-color:#FDFDFD;
 `;
 
 
-const SearchBar = ({placeholder, width, height}) => {
+const SearchBar = ({placeholder, width, height, onChange}) => {
 
     return<Container width={width} height={height}>
          <SearchImg onClick={()=>{
         }}><img src='/SearchIcon.png'/></SearchImg>
-        <TextInput type='text' placeholder={placeholder} />
+        <TextInput type='text' placeholder={placeholder} onChange={onChange}/>
     </Container>
 }
 

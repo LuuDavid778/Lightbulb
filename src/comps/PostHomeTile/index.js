@@ -56,16 +56,16 @@ top:-90pt;
 left:65pt;
 `;
 
-const PostHomeTile = ({title, category, url}) => {
+const PostHomeTile = ({title, category, url, onClick, username, pfpurl}) => {
 
-    return <Container>
+    return <Container onClick={onClick}>
       <TileImage width="165px" height="208px" imageheight="208px" url={url}></TileImage>
       <HeaderDiv>
     <Header>{title}</Header>
     <Category>{category}</Category>
     </HeaderDiv>
       <HeaderTag>
-<PostAuthorTag></PostAuthorTag>
+<PostAuthorTag url={pfpurl} username={username}></PostAuthorTag>
 </HeaderTag>
 {/* <LikeContainer>
   <LikeTag></LikeTag>
@@ -76,7 +76,9 @@ const PostHomeTile = ({title, category, url}) => {
 PostHomeTile.defaultProps = {
 title:"Default Post Title",
 category: "Default Category",
-url:"https://placekeanu.com/344/308"
+url:"https://placekeanu.com/344/308",
+username:"Default User",
+pfpurl:"https://placekeanu.com/26/26"
 }
 
 export default PostHomeTile;

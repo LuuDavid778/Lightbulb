@@ -15,7 +15,7 @@ export default function EditPage(){
     const [category, setCat] = useState("Category")
     const [img, setImg] = useState()
 
-    const handleUpload = async event => {
+    const handleUpdate = async event => {
         event.preventDefault()
         console.log(title)
 
@@ -24,36 +24,46 @@ export default function EditPage(){
         data.append('Title', title)
         data.append("Description", desc)
         data.append("Category", category)
-
-        let resp = await axios.post("http://localhost:8080/api/updatePost/", data)
+        let resp = await axios.patch("http://localhost:8080/api/updatePost/", 6)
         console.log(resp.data)
+        
     }
-
-
 
     return <div className="EditPage">
         <div className="EditPage_header">
-          <div className="EditPage_backbutton"><BackButton></BackButton></div>
+         <div className="EditPage_backbutton"><BackButton onClick={()=>{
+              history.goBack()
+          }}></BackButton></div>
         </div>
         <h2>Edit Post</h2>
 
-    <div className="form">
-    <FormInput title="Title" placeholder="Title of Post" width="264px" height="30px" ></FormInput>
+    <form className="form" onSubmit={handleUpdate}>
+    <FormInput type="text" title="Title" placeholder="Title of Post" width="264px" height="30px" onChange={e=>setTitle(e.target.value)}></FormInput>
     <div className="form_dropdown">
         <h3>Category</h3>
-    <FormDropDown></FormDropDown>
+        <FormDropDown
+        setCat={(category)=>{
+            setCat(category)
+        }}
+        category={category}
+        ></FormDropDown>
     </div>
-    <FormInput title="Description" placeholder="Write your Description here..." width="264px" height="106px" ></FormInput>
+    <FormInput type="text" title="Description" placeholder="Write your Description here..." width="264px" height="106px"onChange={e=>setDesc(e.target.value)} ></FormInput>
     <div className="EditPage_uploadimage">
        <UploadImage></UploadImage>
-    </div>
-
+       <input id='file-input' type="file" accept="image/*" filename={img} onChange={e=>setImg(e.target.files[0])} ></input>
     </div>
 
     <div className="EditPage_buttondiv">
-        <Button text="Save"></Button>
-        <Button color="#B086F7" bgcolor="white" text="Cancel"></Button>
+        <Button text="Save" type="submit"></Button>
+        <Button onClick={()=>{
+                history.goBack();
+            }}color="#B086F7" bgcolor="white" text="Cancel"></Button>
     </div>
+
+    </form>
+
+   
 
 
     </div>

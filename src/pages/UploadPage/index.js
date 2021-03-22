@@ -29,7 +29,20 @@ export default function UploadPage(){
         let resp = await axios.post("http://localhost:8080/api/createPost", data)
         console.log(resp.data)
     }
-
+    
+    const CheckToken = async () => {
+        const token = await sessionStorage.getItem("token");
+        console.log("token", token);
+        if(token){
+            axios.defaults.headers.common['Authorization'] = token;
+        } else{
+            history.push("/login");
+        }
+    }
+    
+    useEffect(()=>{
+        CheckToken();
+    },[])
 
 
     return <div className="uploadpage">

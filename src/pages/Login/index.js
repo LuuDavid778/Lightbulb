@@ -36,6 +36,8 @@ border-bottom:1px solid #B086F7;
 ::placeholder {
     color:#AFAFAF;
 }
+
+cursor:pointer;
 `;
 
 const LoginButton = styled.button`
@@ -73,7 +75,7 @@ const Login = () => {
             sessionStorage.setItem("token", token);
             axios.defaults.headers.common['Authorization'] = "Bearer " + token;
             console.log("login success" , token)
-            history.push("/")
+            history.push("/");
         } else  {   
             setError("Your username/password is incorrect.")
         }
@@ -83,12 +85,16 @@ const Login = () => {
  return <div>
     <All>
     <BackCont>
-        <BackButton Arrow={BackArrow}></BackButton>
+        <BackButton Arrow={BackArrow} onClick={()=>{
+            history.goBack();
+        }}></BackButton>
     </BackCont>
     <MainContent>
         <LoginInput title="Username" placeholder="Username" onChange={(e)=>{setUsername(e.target.value)}}></LoginInput>
         <LoginInput title="PASSWORD" type="password" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}}></LoginInput>
-        <CreateAccount>Don’t have an account? Create one.</CreateAccount>
+        <CreateAccount onClick={()=>{
+            history.push("/signup")
+        }}>Don’t have an account? Create one.</CreateAccount>
         <Error>{error}</Error>
 
         <LoginButton onClick={HandleLogin}>Login</LoginButton>
