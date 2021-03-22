@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-
+import {useHistory} from 'react-router-dom';
 import TopBar from '../../comps/Header';
 import NavBar from '../../comps/NavBar';
 import PostHomeTile from '../../comps/PostHomeTile';
@@ -32,8 +32,11 @@ margin-bottom:100px;
 `;
 
 const Home = () => {
+    const history = useHistory();
     const [allPosts, setallPosts] = useState([]);
     const [subjectNum, setSubjectNum] = useState(0);
+    const [obj, setObj] = useState([]);
+    const [search, setSearch] = useState("");
 
     var TheSubject = "";
 
@@ -45,21 +48,57 @@ const Home = () => {
         var resp = await axios.get("http://localhost:8080/api/allPosts");
         var arr = resp.data.posts;
         setallPosts(arr);
+        setObj(arr);
         console.log(arr)
       }
 
+      const CheckToken = async () => {
+        const token = await sessionStorage.getItem("token");
+        console.log("token", token);
+        if(token){
+            axios.defaults.headers.common['Authorization'] = token;
+        } else{
+            history.push("/login");
+        }
+    }
 
+    const FilterTitle = (e)=>{
+        setObj(
+          allPosts.filter((n)=>{
+              return n.Title.includes(e)
+          })
+        )
+      }
 
     
+    
     useEffect(()=>{
+        CheckToken();
         GetPosts();
     },[])
     
     return <div>
-        <TopBar placeholder="Search Posts"></TopBar>
+        <TopBar placeholder="Search Posts" onChange={(e)=>{
+            setSearch(e.target.value)
+            FilterTitle(search);
+        }}></TopBar>
         <Title>Frontend Development</Title>
         <ContentContainer>
-                {allPosts.map(o=>{
+
+        {obj && obj.map(o => <PostHomeTile display="none"
+        title={o.Title}
+        url={o.ImageURL}      
+        category={o.Category}
+        username={o.Username}
+        pfpurl={o.ProfileImg}
+        onClick={()=>{
+          history.push("/post/" + o.id)
+        }}
+        /> )}
+
+
+
+                {/* {allPosts.map(o=>{
                         if (o.Subject === 1){
                             TheSubject = "Frontend Development";
                         } else if (o.Subject === 2){
@@ -73,13 +112,7 @@ const Home = () => {
                         }
                     if (subjectNum === 0){
                         return <div>
-                    <PostHomeTile
-                    link={"/post/"+o.id}
-                    title={o.Title}
-                    category={TheSubject}
-                    url={"url("+o.img+")"}
-                    id={o.id}
-                    />
+               
                     </div>
                     }
                     else if (o.Subject === subjectNum){
@@ -95,7 +128,7 @@ const Home = () => {
                     } else {
                     return
                     }
-                    })}
+                    })} */}
         </ContentContainer>
         <DropDownContainer>
         <DropDown
