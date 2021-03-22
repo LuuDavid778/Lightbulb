@@ -12,6 +12,9 @@ width:37px;
 height:37px;
 background-color:${props=>props.BgColor ? props.BgColor : "#B086F7"};
 border-radius:10px;
+
+margin-top: 10px;
+margin-left: 10px;
 `;
 
 const Image = styled.img``;
