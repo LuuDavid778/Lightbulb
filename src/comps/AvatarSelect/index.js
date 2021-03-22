@@ -6,7 +6,7 @@ import SelectedIcon from '../../Images/SelectedIcon.svg';
 
 
 const Container = styled.div`
-
+margin:40px;
 `;
 
 const AvatarImg = styled.img`
