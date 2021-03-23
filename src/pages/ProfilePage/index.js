@@ -28,11 +28,12 @@ justify-content: center;
 `;
 
 // get joe's help with mapping user's profile
-export default function ProfilePage({pfp}){
+export default function ProfilePage(){
+  const location = useLocation();
+  const history = useHistory();
     const [myPosts, setMyPost] = useState([])
     const [user, setUser] = useState({})
-    const location = useLocation();
-    const history = useHistory();
+  
 
     const HandleMyUser = async() => {
       let resp = await axios.get(`http://localhost:8080/api/myUser`)
@@ -76,7 +77,7 @@ export default function ProfilePage({pfp}){
           {/* <div className="backbutton"><BackButton BgColor="white"></BackButton></div> */}
           <div className="header"><h2>My Profile</h2></div>
           <div className="user">
-            <img className="profilepicture" src={pfp}></img>
+            <img className="profilepicture" src={user.ProfileImg}></img>
             <div className="profile-subdiv">
             <h3>{user.Username}</h3>
             <EditButton>Edit Profile</EditButton>

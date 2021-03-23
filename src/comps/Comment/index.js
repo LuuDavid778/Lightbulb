@@ -84,14 +84,6 @@ const Comment = ({username, comment, likes, url, iconOnClick}) => {
         <Content>
             {comment}
         </Content>
-<BottomRow>
-    <HeartIcon>
-<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.32745 12.0367L5.44205 11.2306C2.29736 8.37904 0.221252 6.49834 0.221252 4.19019C0.221252 2.30949 1.69895 0.831787 3.57966 0.831787C4.64214 0.831787 5.66187 1.32639 6.32745 2.10798C6.99302 1.32639 8.01276 0.831787 9.07523 0.831787C10.9559 0.831787 12.4336 2.30949 12.4336 4.19019C12.4336 6.49834 10.3575 8.37904 7.21284 11.2367L6.32745 12.0367Z" fill="#646464"/>
-</svg>
-</HeartIcon>
-{likes}
-</BottomRow>
     </Container>
 }
 

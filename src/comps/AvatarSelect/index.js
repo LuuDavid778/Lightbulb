@@ -14,6 +14,8 @@ const AvatarImg = styled.img`
 width:100px;
 height:100px;
 cursor:pointer;
+border-radius:50px;
+
 `;
 
 const Checkmark = styled.img`
