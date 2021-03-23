@@ -6,6 +6,7 @@ import SelectedIcon from '../../Images/SelectedIcon.svg';
 
 
 const Container = styled.div`
+max-height:60px;
 margin:40px;
 `;
 
@@ -27,16 +28,16 @@ left:80px;
 
 
 
-const AvatarSelect = ({onClick, Check}) => {
+const AvatarSelect = ({onClick, Check, img}) => {
     return<Container onClick={onClick}>
-        <AvatarImg src={Avatar1}></AvatarImg> 
+        <AvatarImg src={img}></AvatarImg> 
         <Checkmark Check={Check} src={SelectedIcon}></Checkmark>
     </Container>
 }
 
 
 AvatarSelect.defaultProps = {
-
+img: Avatar1
 }
 
 export default AvatarSelect; 

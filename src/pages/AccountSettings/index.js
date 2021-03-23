@@ -80,7 +80,7 @@ const AccountSettings = () => {
     <MainContent>
         <Title>Edit Profile</Title>
         <div className="accountsetting_username">{user.Username}</div>
-        <AvatarSelect Check="none"></AvatarSelect>
+        <AvatarSelect Check="none" img={user.ImageSrc}></AvatarSelect>
         <FormInput onChange={(e)=>{setUsername(e.target.value)}}title="Change Username" placeholder="Username"></FormInput>
     </MainContent>
     <ButtonCont>
