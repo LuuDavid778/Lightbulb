@@ -5,7 +5,7 @@ import BackButton from '../../comps/BackButton';
 import './ProfilePage.scss';
 import MyPostTile from '../../comps/MyPostTile'
 import NavBar from '../../comps/NavBar';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 const EditButton = styled.button`
 width:100%;
 max-width: 87px;
@@ -28,13 +28,12 @@ justify-content: center;
 `;
 
 // get joe's help with mapping user's profile
-export default function ProfilePage({pfp, username}){
+export default function ProfilePage({pfp}){
     const [myPosts, setMyPost] = useState([])
     const [user, setUser] = useState({})
-    const history = useHistory()
+    const location = useLocation();
+    const history = useHistory();
 
-
-    
     const HandleMyUser = async() => {
       let resp = await axios.get(`http://localhost:8080/api/myUser`)
       console.log("user",resp.data.user[0])
@@ -48,23 +47,27 @@ export default function ProfilePage({pfp, username}){
       setMyPost(...[resp.data.posts])
     
     }
-
     const CheckToken = async () => {
       const token = await sessionStorage.getItem("token");
       console.log("token", token);
       if(token){
-          axios.defaults.headers.common['Authorization'] = token;
+        // add beAR TOKEN
+          axios.defaults.headers.common['Authorization'] = "Bearer " + token;
       } else{
-          history.push("/login");
+          history.push("/welcome");
       }
   }
 
-
+  const handleDelete = async (o) =>{
+    let resp = await axios.delete("http://localhost:8080/api/deletePost/" + o.id)
+    HandleMyUser();
+    HandleMyPosts();
+  }
 
     useEffect(()=>{
       CheckToken();
-     HandleMyUser()
-     HandleMyPosts()
+     HandleMyUser();
+     HandleMyPosts();
     }, [])
 
 
@@ -90,6 +93,12 @@ export default function ProfilePage({pfp, username}){
         category={o.Category}
         onClick={()=>{
           history.push("/post/" + o.id)
+        }}
+        onClickEdit={()=>{
+          history.push('/edit',{params: o})
+        }}
+        onClickDelete={()=>{
+          handleDelete(o)
         }}
         /> )}
         

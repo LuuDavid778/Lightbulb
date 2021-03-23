@@ -51,14 +51,13 @@ const Home = () => {
         setObj(arr);
         console.log(arr)
       }
-
       const CheckToken = async () => {
         const token = await sessionStorage.getItem("token");
         console.log("token", token);
         if(token){
-            axios.defaults.headers.common['Authorization'] = token;
+            axios.defaults.headers.common['Authorization'] = "Bearer " + token;
         } else{
-            history.push("/login");
+            history.push("/welcome");
         }
     }
 

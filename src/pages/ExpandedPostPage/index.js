@@ -10,6 +10,7 @@ import CommentPrompt from '../../comps/CommentPrompt'
 import Comment from '../../comps/Comment';
 
 
+
     export default function ExpandedPostPage(){
         
         const history = useHistory();
@@ -22,10 +23,10 @@ import Comment from '../../comps/Comment';
             const token = await sessionStorage.getItem("token");
             console.log("token", token);
             if(token){
-                console.log(token)
-                axios.defaults.headers.common['Authorization'] = token;
+              // add beAR TOKEN
+                axios.defaults.headers.common['Authorization'] = "Bearer " + token;
             } else{
-                history.push("/login");
+                history.push("/welcome");
             }
         }
 
@@ -65,8 +66,9 @@ import Comment from '../../comps/Comment';
             <div id="content">
                 <div id="content-header">{post.Title}</div>
                 <div className="skill"><SkillTag category={post.Category}></SkillTag></div>
-                <div className="postcaption"><PostCaption caption={post.Description}/></div>
+                <div className="postcaption"><PostCaption username={post.Username}caption={post.Description}/></div>
                 <div className="commentprompt"><CommentPrompt
+                NameTxt="Default Name"
                  onChange={e=>setUComment(e.target.value)}
                  onClick={PostComment}
                  ></CommentPrompt></div>
