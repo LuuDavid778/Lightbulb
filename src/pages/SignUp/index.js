@@ -60,7 +60,7 @@ const history = useHistory();
 
 const handleSignup = async () =>{
 let resp = axios.post("http://localhost:8080/api/createUser", {Username:username, password:pass})
-history.push("/login");
+history.push("/welcome");
 }
 
 

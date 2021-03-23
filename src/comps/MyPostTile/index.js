@@ -19,6 +19,7 @@ position:relative;
 max-width:140px;
 left:195px;
 bottom:80px;
+z-index:1;
 
 `;
 
@@ -49,17 +50,17 @@ position:relative;
 bottom:360px;
 left:205px;
 `;
-const MyPostTile = ({title, category, url, onClick}) => {
+const MyPostTile = ({title, category, url, onClickEdit, onClickDelete, onClick}) => {
 
-    return <Container onClick={onClick}>
-      <TileImage url={url}></TileImage>
+    return <Container>
+      <TileImage url={url} onClick={onClick}></TileImage>
       <HeaderDiv>
     <Header>{title}</Header>
     <Category>{category}</Category>
     </HeaderDiv>
       <ButtonDiv>
-         <TileButton hovercolor="#E4E4E4" bgcolor="white" color="black" label="Edit"></TileButton>
-         <TileButton hovercolor="#EB4242" label="Delete"></TileButton>
+         <TileButton onClick={onClickEdit} hovercolor="#E4E4E4" bgcolor="white" color="black" label="Edit"></TileButton>
+         <TileButton onClick={onClickDelete} hovercolor="#EB4242" label="Delete"></TileButton>
       </ButtonDiv>
       <HeaderTag>
 <PostAuthorTag></PostAuthorTag>

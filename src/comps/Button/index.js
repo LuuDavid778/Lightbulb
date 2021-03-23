@@ -12,12 +12,21 @@ const ButtonContainer = styled.button`
     padding: 0px 45px 0px 45px;
     -webkit-box-shadow: 0px 6px 13px -2px rgba(0,0,0,0.31); 
     box-shadow: 0px 6px 13px -2px rgba(0,0,0,0.31);
+    font-family: Poppins;
+    cursor:pointer;
+    outline:none;
 `;
 
 const ButtonText = styled.p`
     text-align: center;
     font-size: ${props=>props.fontsize ? props.fontsize : "14px"};
     color:${props=>props.color ? props.color : "#FFF"};
+    font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
 `;
 
 

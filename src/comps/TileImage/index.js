@@ -13,6 +13,7 @@ border-radius: 10px;
 display:flex;
 align-items:center;
 justify-content:center;
+cursor:pointer;
 `;
 
 const Content = styled.div`
@@ -28,9 +29,9 @@ const Image = styled.img`
 height:${props => props.imageheight ? props.imageheight : "308px"}; 
 `;
 
-const TileImage = ({url, width, height, imageheight}) => {
+const TileImage = ({url, width, height, imageheight, onClick}) => {
 
-    return <Container tilewidth={width} tileheight={height}>
+    return <Container onClick={onClick} tilewidth={width} tileheight={height}>
         <Content tilewidth={width} tileheight={height}>
         </Content>
         <Image imageheight={imageheight} src={url}></Image>

@@ -25,18 +25,18 @@ export default function UploadPage(){
         data.append('Title', title)
         data.append("Description", desc)
         data.append("Category", category)
-
         let resp = await axios.post("http://localhost:8080/api/createPost", data)
         console.log(resp.data)
+        history.push("/")
     }
     
     const CheckToken = async () => {
         const token = await sessionStorage.getItem("token");
         console.log("token", token);
         if(token){
-            axios.defaults.headers.common['Authorization'] = token;
+            axios.defaults.headers.common['Authorization'] = "Bearer "+ token;
         } else{
-            history.push("/login");
+            history.push("/welcome");
         }
     }
     

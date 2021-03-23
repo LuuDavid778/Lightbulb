@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import Logo from './logo.svg';
 import Button from '../../comps/Button';
 import './LandingPage.scss';
- 
+import {useHistory} from 'react-router-dom';
 
 const AppTitle = styled.div`
 font-family: Poppins;
@@ -24,30 +24,39 @@ font-weight: 500;
 font-size: 14px;
 line-height: 21px;
 color: #7468A7;
-margin-left: 43px ;
-// margin-top: 42px;
+
+margin-top: 42px;
 align-self:center;
 position: relative;
 bottom: 30px;
+display:flex;
+justify-content:center;
 `;
 
 const FooterContents = styled.div`
 background: #B086F7;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-width: 377px;
+width: 100%;
 height: 277px;
 position: relative;
 bottom: -430px;
 `;
 
 const LandingPage = () => {
+    const history = useHistory();
  return <div>
      <AppTitle>LIGHTBULB</AppTitle>
     <FooterContents>
         <LoginSignupPrompt> Login or signup and jump into the action!</LoginSignupPrompt>
         <div className="Buttons">
-        <Button text="Login"></Button>
-        <Button text="Signup"></Button>
+            <div id="button">
+        <Button onClick={()=>{
+            history.push("/login")
+        }}width="230px" text="Login" color="#B086F7" bgcolor="white"></Button>
+        </div>
+        <Button onClick={()=>{
+            history.push("/signup")
+        }}width="230px" text="Sign up" color="#B086F7" bgcolor="white"></Button>
         </div>
     </FooterContents>
  </div>

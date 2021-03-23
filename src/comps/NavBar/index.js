@@ -17,8 +17,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+
 } from "react-router-dom";
+
+import {useHistory} from 'react-router-dom';
 
 
 const NavWrapper = styled.div`
@@ -46,11 +49,12 @@ const NavItem = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+cursor:pointer;
 `;
 
 const NavBar = ({focused}) => {
     const [focusedTab, setFocusedTab] = useState(0);
-
+    const history = useHistory();
     const pageNumber = () => {
       setFocusedTab(focused);
     }
@@ -67,9 +71,10 @@ const NavBar = ({focused}) => {
             <Link to="/upload">
               <NavItem style={{backgroundImage: focusedTab == 2 ? "url(" + AddC + ")" : "url(" + Add + ")"}} onClick={() => {setFocusedTab(2)}}></NavItem>
             </Link>
-            <Link to="/myprofile"> 
-              <NavItem style={{backgroundImage: focusedTab == 3 ? "url(" + ProfileC + ")" : "url(" + Profile + ")"}} onClick={() => {setFocusedTab(3)}}></NavItem>
-            </Link>
+              <NavItem style={{backgroundImage: focusedTab == 3 ? "url(" + ProfileC + ")" : "url(" + Profile + ")"}} onClick={() => {
+                 history.push("/myprofile")
+                setFocusedTab(3)
+                  }}></NavItem>
             <Link to="/settings">
               <NavItem style={{backgroundImage: focusedTab == 4 ? "url(" + SettingsC + ")" : "url(" + Settings + ")"}} onClick={() => {setFocusedTab(4)}}></NavItem>
              </Link> 
