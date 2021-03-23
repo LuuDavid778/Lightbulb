@@ -34,14 +34,14 @@ margin-bottom:100px;
 const Home = () => {
     const history = useHistory();
     const [allPosts, setallPosts] = useState([]);
-    const [subjectNum, setSubjectNum] = useState(0);
+    const [CategoryTitle, setCategoryTitle] = useState("All");
     const [obj, setObj] = useState([]);
     const [search, setSearch] = useState("");
 
     var TheSubject = "";
 
     const HandleSelected = async (selected) => {
-        setSubjectNum(selected)
+        setCategoryTitle(selected)
     }
 
     const GetPosts = async () => {
@@ -51,6 +51,7 @@ const Home = () => {
         setObj(arr);
         console.log(arr)
       }
+
       const CheckToken = async () => {
         const token = await sessionStorage.getItem("token");
         console.log("token", token);
@@ -83,8 +84,10 @@ const Home = () => {
         }}></TopBar>
         <Title>Frontend Development</Title>
         <ContentContainer>
-
-        {obj && obj.map(o => <PostHomeTile display="none"
+        
+        {obj && obj.map(o => {
+        if (CategoryTitle === "All"){
+            return <PostHomeTile display="none"
         title={o.Title}
         url={o.ImageURL}      
         category={o.Category}
@@ -93,7 +96,24 @@ const Home = () => {
         onClick={()=>{
           history.push("/post/" + o.id)
         }}
-        /> )}
+        />
+        }
+        else if (o.Category === CategoryTitle){
+            return <PostHomeTile display="none"
+            title={o.Title}
+            url={o.ImageURL}      
+            category={o.Category}
+            username={o.Username}
+            pfpurl={o.ProfileImg}
+            onClick={()=>{
+              history.push("/post/" + o.id)
+            }}
+            />
+        }
+        else {
+            return
+        }
+    })}
 
 
 
@@ -131,12 +151,12 @@ const Home = () => {
         </ContentContainer>
         <DropDownContainer>
         <DropDown
-        all={()=>{HandleSelected(0)}}
-        frontend={()=>{HandleSelected(1)}}
-        backend={()=>{HandleSelected(2)}}
-        uiux={()=>{HandleSelected(3)}}
-        graphic={()=>{HandleSelected(4)}}
-        illustration={()=>{HandleSelected(5)}}
+        all={()=>{HandleSelected("All")}}
+        frontend={()=>{HandleSelected("Frontend Development")}}
+        backend={()=>{HandleSelected("Backend Development")}}
+        uiux={()=>{HandleSelected("UI/UX Design")}}
+        graphic={()=>{HandleSelected("Graphic Design")}}
+        illustration={()=>{HandleSelected("Illustration")}}
         ></DropDown>
         </DropDownContainer>
         <Footer>
