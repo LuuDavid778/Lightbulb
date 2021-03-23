@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+    import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
@@ -50,6 +50,7 @@ const Home = () => {
         setallPosts(arr);
         setObj(arr);
         console.log(arr)
+        console.log(obj);
       }
 
       const CheckToken = async () => {

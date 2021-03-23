@@ -18,6 +18,15 @@ import Comment from '../../comps/Comment';
         const [post, setPost] = useState({})
         const [comments, setComments] = useState([])
         const [userComment, setUComment] = useState("")
+        const [user, setUser] = useState({})
+  
+
+        const HandleMyUser = async() => {
+          let resp = await axios.get(`http://localhost:8080/api/myUser`)
+          console.log("user",resp.data.user[0])
+          setUser(resp.data.user[0])
+            console.log(user)
+        }
 
         const CheckToken = async () => {
             const token = await sessionStorage.getItem("token");
@@ -55,6 +64,7 @@ import Comment from '../../comps/Comment';
             CheckToken();
             HandlePost()
             GetAllComments();
+            HandleMyUser();
         },[])
 
         console.log(post)
@@ -68,7 +78,7 @@ import Comment from '../../comps/Comment';
                 <div className="skill"><SkillTag category={post.Category}></SkillTag></div>
                 <div className="postcaption"><PostCaption username={post.Username}caption={post.Description}/></div>
                 <div className="commentprompt"><CommentPrompt
-                NameTxt="Default Name"
+                NameTxt={user.Username}
                  onChange={e=>setUComment(e.target.value)}
                  onClick={PostComment}
                  ></CommentPrompt></div>

@@ -9,13 +9,6 @@ import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import AvatarSelect from '../../comps/AvatarSelect';
 
-import Avatar1 from '../../Images/Avatar1.png';
-import Avatar2 from '../../Images/Avatar2.png';
-import Avatar3 from '../../Images/Avatar3.png';
-import Avatar4 from '../../Images/Avatar4.png';
-import Avatar5 from '../../Images/Avatar5.png';
-import Avatar6 from '../../Images/Avatar6.png';
-
 const Title = styled.p`
 color:#7468A7;
 font-size:22px;
@@ -52,6 +45,7 @@ margin-top:30px;
 color:white;
 font-size:20px;
 font-family:poppins;
+cursor:pointer;
 `;
 
 const NextCont = styled.div`
@@ -74,6 +68,7 @@ const [username, setUser] = useState("");
 const [pass, setPass] = useState("");
 const [selected, setSelected] = useState(0);
 const [checkMark, setCheckMark] = useState(false);
+const [img, setImg] = useState("")
 const history = useHistory();
 
 var ImageSrc = "nothing";
@@ -85,23 +80,27 @@ const handleSelection = async (selection) =>{
 }
 
 const handleSignup = async () =>{
-let resp = axios.post("http://localhost:8080/api/createUser", {Username:username, password:pass, ProfileImg:ImageSrc})
+let resp = axios.post("http://localhost:8080/api/createUser", {Username:username, password:pass, ProfileImg:img})
 history.push("/welcome");
 }
 
 const ConvertImageSrc = () => {
     if(selected == 1){
-        ImageSrc = Avatar1;
+        setImg("https://picsum.photos/id/1081/30/30")
     } else if (selected == 2){
-        ImageSrc = Avatar2;
+        setImg("https://picsum.photos/id/1076/30/30")
     }  else if (selected == 3){
-        ImageSrc = Avatar3;
+        setImg("https://picsum.photos/id/392/30/30")
+        
     }  else if (selected == 4){
-        ImageSrc = Avatar4;
+        setImg("https://picsum.photos/id/525/30/30")
+
     }  else if (selected == 5){
-        ImageSrc = Avatar5;
+        setImg("https://picsum.photos/id/537/30/30")
+
     }  else if (selected == 6){
-        ImageSrc = Avatar6;
+        setImg("https://picsum.photos/id/558/30/30")
+
     }
 }
 
@@ -123,14 +122,14 @@ const ConvertImageSrc = () => {
         }}></LoginPass>
         <Box>
         <AvatarCont>
-            <AvatarSelect onClick={()=>{handleSelection(1)}} Check={selected == 1 ? "block" : "none"} img={Avatar1}></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(2)}} Check={selected == 2 ? "block" : "none"} img={Avatar2}></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(3)}} Check={selected == 3 ? "block" : "none"} img={Avatar3}></AvatarSelect>
+            <AvatarSelect onClick={()=>{handleSelection(1)}} Check={selected == 1 ? "block" : "none"} img="https://picsum.photos/id/1081/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{handleSelection(2)}} Check={selected == 2 ? "block" : "none"} img="https://picsum.photos/id/1076/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{handleSelection(3)}} Check={selected == 3 ? "block" : "none"} img="https://picsum.photos/id/392/300/300"></AvatarSelect>
         </AvatarCont>
         <AvatarCont>
-            <AvatarSelect onClick={()=>{handleSelection(4)}} Check={selected == 4 ? "block" : "none"} img={Avatar4}></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(5)}} Check={selected == 5 ? "block" : "none"} img={Avatar5}></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(6)}} Check={selected == 6 ? "block" : "none"} img={Avatar6}></AvatarSelect>
+            <AvatarSelect onClick={()=>{handleSelection(4)}} Check={selected == 4 ? "block" : "none"} img="https://picsum.photos/id/525/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{handleSelection(5)}} Check={selected == 5 ? "block" : "none"} img="https://picsum.photos/id/537/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{handleSelection(6)}} Check={selected == 6 ? "block" : "none"} img="https://picsum.photos/id/558/300/300"></AvatarSelect>
         </AvatarCont>
         </Box>
         <Button onClick={handleSignup}>Sign Up</Button>
