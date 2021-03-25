@@ -14,33 +14,35 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
 font-family: 'Poppins', sans-serif;
 font-size:14px;
-display:grid;
+// display:grid;
 flex-direction: column;
 box-sizing:border-box;
 `;
 
-const AvatarHeader = styled.div`
-margin-bottom: 5px;
-display:flex;
-`;
-const AvatarImg = styled.div`
-width:24px;
-height:24px;
-border:1px solid black;
-border-radius: 50px;
-// margin-left:10px;
-margin-top:6px;
+// const AvatarHeader = styled.div`
+// margin-bottom: 5px;
+// display:flex;
+// left: 10px;
+// position: relative;
+// `;
+// const AvatarImg = styled.div`
+// width:24px;
+// height:24px;
+// border:1px solid black;
+// border-radius: 50px;
+// // margin-left:10px;
+// margin-top:6px;
 
-`;
+// `;
 
-const AvatarName = styled.div`
-margin-left:12px;
-margin-top:11px;
-max-width:90px;
-font-size:12px;
-color: #7468A7;
-font-weight:500;
-`;
+// const AvatarName = styled.div`
+// margin-left:12px;
+// margin-top:11px;
+// max-width:90px;
+// font-size:12px;
+// color: #7468A7;
+// font-weight:500;
+// `;
 
 const CommentBox = styled.textarea`
 width:100%;
@@ -54,6 +56,9 @@ border-radius: 5px;
 font-family: 'Poppins', sans-serif;
 font-size:13px;
 color: black;
+top: 10px;
+left: 10px;
+position: relative;
 
 `;
 
@@ -67,7 +72,8 @@ background: #7468A7;
 border-radius: 5px;
 color:white;
 font-family: 'Poppins', sans-serif;
-
+left: 50px;
+position: relative;
 hover{
     border: 1px solid white;
 }
@@ -77,11 +83,11 @@ hover{
 
 const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick}) => {
     return<Container>
-    <AvatarHeader>
+    {/* <AvatarHeader>
         <AvatarImg >  </AvatarImg>
         <AvatarName>{NameTxt}</AvatarName>
        
-    </AvatarHeader>
+    </AvatarHeader> */}
 
     <CommentBox placeholder={Placeholder} onChange={onChange}></CommentBox>
 
@@ -91,7 +97,7 @@ const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick}) =>
 
 
 CommentPrompt.defaultProps = {
-    LikeNumber: 120,
+    // LikeNumber: 120,
     CaptionTxt: "I spent all night on this for my Web Development class. I used styled.css and react for it. Here are some screenshots of my code. Let me know what you guys think! ",
     NameTxt:"Joe Le",
     Placeholder: "Share your comments!"
