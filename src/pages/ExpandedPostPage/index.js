@@ -8,6 +8,7 @@ import SkillTag from '../../comps/SkillTag';
 import PostCaption from '../../comps/PostCaption';
 import CommentPrompt from '../../comps/CommentPrompt'
 import Comment from '../../comps/Comment';
+import BackArrow from '../../Images/back-w.png';
 
 
 
@@ -70,8 +71,15 @@ import Comment from '../../comps/Comment';
         console.log(post)
         console.log(comments);
         return<div className="expandedpostpage">
+       
             <div id="header">
+              <div className="BackBtnCont">
+            <BackButton Arrow={BackArrow} onClick={()=>{
+            history.goBack();
+        }}></BackButton></div>
                 <img className="postimage"  src={post.ImageURL}></img>
+                   
+                
             </div>
             <div id="content">
                 <div id="content-header">{post.Title}</div>
