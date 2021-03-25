@@ -5,6 +5,7 @@ import Arrow from '../../Images/dropdown.png';
 
 const Container = styled.div`
 display:flex;
+
 `;
 
 const Button = styled.div`
@@ -16,6 +17,7 @@ color:white;
 background-color:#B38BF6;
 border-radius:20px;
 justify-content:center;
+
 `;
 
 const Topic = styled.div`
@@ -31,17 +33,19 @@ border-radius:10px;
 -webkit-box-shadow: 0px 7px 17px 6px rgba(0,0,0,0.16); 
 box-shadow: 0px 7px 17px 6px rgba(0,0,0,0.16);
 position:absolute;
+
 `;
 
 const Image = styled.img`
-position:relative;
-left:70px;
+position:absolute;
+right:10px;
 `;
 
 const Label = styled.div`
 position:relative;
-left:-70px;
+text-align:left;
 font-weight:500;
+
 `;
 
 
