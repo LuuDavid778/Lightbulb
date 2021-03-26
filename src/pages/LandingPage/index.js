@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 // import Logo from './logo.svg';
 import Button from '../../comps/Button';
+import LandingLogo from '../../comps/LandingLogo';
 import './LandingPage.scss';
 import {useHistory} from 'react-router-dom';
 
@@ -25,7 +26,7 @@ font-size: 14px;
 line-height: 21px;
 color: #7468A7;
 
-margin-top: 42px;
+margin-top: px;
 align-self:center;
 position: relative;
 bottom: 30px;
@@ -39,13 +40,15 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 width: 100%;
 height: 277px;
 position: relative;
-bottom: -430px;
+bottom: -230px;
 `;
 
 const LandingPage = () => {
     const history = useHistory();
  return <div>
      <AppTitle>LIGHTBULB</AppTitle>
+     <div className="LandingLogo">
+     <LandingLogo></LandingLogo></div>
     <FooterContents>
         <LoginSignupPrompt> Login or signup and jump into the action!</LoginSignupPrompt>
         <div className="Buttons">
