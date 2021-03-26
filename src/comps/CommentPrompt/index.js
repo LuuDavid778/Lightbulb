@@ -23,7 +23,7 @@ const AvatarHeader = styled.div`
 margin-bottom: 5px;
 display:flex;
 `;
-const AvatarImg = styled.div`
+const AvatarImg = styled.img`
 width:24px;
 height:24px;
 border:1px solid black;
@@ -75,10 +75,10 @@ hover{
 
 
 
-const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick}) => {
+const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick, url}) => {
     return<Container>
     <AvatarHeader>
-        <AvatarImg >  </AvatarImg>
+        <AvatarImg src={url}></AvatarImg>
         <AvatarName>{NameTxt}</AvatarName>
        
     </AvatarHeader>

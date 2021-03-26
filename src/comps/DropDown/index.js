@@ -73,7 +73,6 @@ const DropDown = ({selected, all, frontend, backend, uiux, graphic, illustration
       <Box style={{display: open == true ? "block" : "none"}}>
           <Topic onClick={all}>All</Topic>
           <Topic onClick={frontend}>Frontend Development</Topic>
-          <Topic onClick={backend}>Backend Development</Topic>
           <Topic onClick={uiux}>UI/UX Design</Topic>
           <Topic onClick={graphic}>Graphic Design</Topic>
           <Topic onClick={illustration}>Illustration</Topic>
