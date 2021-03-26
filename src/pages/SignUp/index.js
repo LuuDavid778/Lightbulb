@@ -76,7 +76,6 @@ var ImageSrc = "nothing";
 const handleSelection = async (selection) =>{
  setSelected(selection);
  ConvertImageSrc();
- console.log(selected)
 }
 
 const handleSignup = async () =>{
@@ -84,24 +83,26 @@ let resp = axios.post("http://localhost:8080/api/createUser", {Username:username
 history.push("/welcome");
 }
 
-const ConvertImageSrc = () => {
-    if(selected == 1){
+const ConvertImageSrc = (selected) => {
+    if(selected === 1){
         setImg("https://picsum.photos/id/1081/30/30")
-    } else if (selected == 2){
+    } else if (selected === 2){
         setImg("https://picsum.photos/id/1076/30/30")
-    }  else if (selected == 3){
+    }  else if (selected === 3){
         setImg("https://picsum.photos/id/392/30/30")
         
-    }  else if (selected == 4){
+    }  else if (selected === 4){
         setImg("https://picsum.photos/id/525/30/30")
 
-    }  else if (selected == 5){
+    }  else if (selected === 5){
         setImg("https://picsum.photos/id/537/30/30")
 
-    }  else if (selected == 6){
+    }  else if (selected === 6){
         setImg("https://picsum.photos/id/558/30/30")
 
     }
+
+    console.log(img);
 }
 
  return <div>
@@ -122,14 +123,14 @@ const ConvertImageSrc = () => {
         }}></LoginPass>
         <Box>
         <AvatarCont>
-            <AvatarSelect onClick={()=>{handleSelection(1)}} Check={selected == 1 ? "block" : "none"} img="https://picsum.photos/id/1081/300/300"></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(2)}} Check={selected == 2 ? "block" : "none"} img="https://picsum.photos/id/1076/300/300"></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(3)}} Check={selected == 3 ? "block" : "none"} img="https://picsum.photos/id/392/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{ConvertImageSrc(1)}} Check={selected == 1 ? "block" : "none"} img="https://picsum.photos/id/1081/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{ConvertImageSrc(2)}} Check={selected == 2 ? "block" : "none"} img="https://picsum.photos/id/1076/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{ConvertImageSrc(3)}} Check={selected == 3 ? "block" : "none"} img="https://picsum.photos/id/392/300/300"></AvatarSelect>
         </AvatarCont>
         <AvatarCont>
-            <AvatarSelect onClick={()=>{handleSelection(4)}} Check={selected == 4 ? "block" : "none"} img="https://picsum.photos/id/525/300/300"></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(5)}} Check={selected == 5 ? "block" : "none"} img="https://picsum.photos/id/537/300/300"></AvatarSelect>
-            <AvatarSelect onClick={()=>{handleSelection(6)}} Check={selected == 6 ? "block" : "none"} img="https://picsum.photos/id/558/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{ConvertImageSrc(4)}} Check={selected == 4 ? "block" : "none"} img="https://picsum.photos/id/525/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{ConvertImageSrc(5)}} Check={selected == 5 ? "block" : "none"} img="https://picsum.photos/id/537/300/300"></AvatarSelect>
+            <AvatarSelect onClick={()=>{ConvertImageSrc(6)}} Check={selected == 6 ? "block" : "none"} img="https://picsum.photos/id/558/300/300"></AvatarSelect>
         </AvatarCont>
         </Box>
         <Button onClick={handleSignup}>Sign Up</Button>

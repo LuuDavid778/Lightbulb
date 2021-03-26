@@ -23,7 +23,7 @@ const AvatarHeader = styled.div`
 margin-bottom: 5px;
 display:flex;
 `;
-const AvatarImg = styled.div`
+const AvatarImg = styled.img`
 width:40px;
 height:40px;
 border:1px solid black;
@@ -47,10 +47,10 @@ const TextCont = styled.div`
 margin:5pt;
 `;
 
-const PostCaption = ({caption, username, LikeNumber}) => {
+const PostCaption = ({caption, username, LikeNumber, url}) => {
     return<Container>
     <AvatarHeader>
-        <AvatarImg></AvatarImg>
+        <AvatarImg src={url}></AvatarImg>
         <AvatarName>{username}</AvatarName>
        
     </AvatarHeader>

@@ -83,7 +83,7 @@ const Home = () => {
             setSearch(e.target.value)
             FilterTitle(search);
         }}></TopBar>
-        <Title>Frontend Development</Title>
+        <Title>{CategoryTitle}</Title>
         <ContentContainer>
         
         {obj && obj.map(o => {
@@ -153,8 +153,7 @@ const Home = () => {
         <DropDownContainer>
         <DropDown
         all={()=>{HandleSelected("All")}}
-        frontend={()=>{HandleSelected("Frontend Development")}}
-        backend={()=>{HandleSelected("Backend Development")}}
+        frontend={()=>{HandleSelected("Front-end Development")}}
         uiux={()=>{HandleSelected("UI/UX Design")}}
         graphic={()=>{HandleSelected("Graphic Design")}}
         illustration={()=>{HandleSelected("Illustration")}}
