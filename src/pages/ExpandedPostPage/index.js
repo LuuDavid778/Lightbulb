@@ -84,11 +84,12 @@ import BackArrow from '../../Images/back-w.png';
             <div id="content">
                 <div id="content-header">{post.Title}</div>
                 <div className="skill"><SkillTag category={post.Category}></SkillTag></div>
-                <div className="postcaption"><PostCaption username={post.Username}caption={post.Description}/></div>
+                <div className="postcaption"><PostCaption url={post.ProfileImg} username={post.Username}caption={post.Description}/></div>
                 <div className="commentprompt"><CommentPrompt
                 NameTxt={user.Username}
                  onChange={e=>setUComment(e.target.value)}
                  onClick={PostComment}
+                 url={user.ProfileImg}
                  ></CommentPrompt></div>
                 <div className="comments">
                 {comments && comments.map(o => <Comment

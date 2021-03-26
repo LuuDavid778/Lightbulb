@@ -15,8 +15,16 @@ line-height: 72px;
 color: #B086F7;
 margin-left: 59px ;
 margin-top: 42px;
+margin-bottom:50px;
 align-self:center;
 `;
+
+const AppLogo = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
 
 const LoginSignupPrompt = styled.div`
 font-family: Poppins;
@@ -43,12 +51,15 @@ position: relative;
 bottom: -230px;
 `;
 
+
 const LandingPage = () => {
     const history = useHistory();
  return <div>
      <AppTitle>LIGHTBULB</AppTitle>
+
      <div className="LandingLogo">
-     <LandingLogo></LandingLogo></div>
+     <LandingLogo></LandingLogo>
+  </div>
     <FooterContents>
         <LoginSignupPrompt> Login or signup and jump into the action!</LoginSignupPrompt>
         <div className="Buttons">

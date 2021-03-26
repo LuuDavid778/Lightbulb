@@ -27,13 +27,12 @@ left:10px;
 position: relative;
 `;
 
-
-const AvatarImg = styled.div`
+const AvatarImg = styled.img`
 width:40px;
 height:40px;
 border:1px solid black;
 border-radius: 50px;
-// margin-left:10px;
+margin-left:10px;
 margin-top:6px;
 
 `;
@@ -55,7 +54,8 @@ left:10px;
 padding:10px;
 `;
 
-const PostCaption = ({caption, username, url}) => {
+
+const PostCaption = ({caption, username, LikeNumber, url}) => {
     return<Container>
     <AvatarHeader>
         <AvatarImg src={url}></AvatarImg>

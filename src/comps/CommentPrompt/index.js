@@ -19,30 +19,29 @@ flex-direction: column;
 box-sizing:border-box;
 `;
 
-// const AvatarHeader = styled.div`
-// margin-bottom: 5px;
-// display:flex;
-// left: 10px;
-// position: relative;
-// `;
-// const AvatarImg = styled.div`
-// width:24px;
-// height:24px;
-// border:1px solid black;
-// border-radius: 50px;
-// // margin-left:10px;
-// margin-top:6px;
+const AvatarHeader = styled.div`
+margin-bottom: 5px;
+display:flex;
+`;
+const AvatarImg = styled.img`
+width:24px;
+height:24px;
+border:1px solid black;
+border-radius: 50px;
+// margin-left:10px;
+margin-top:6px;
 
-// `;
+`;
 
-// const AvatarName = styled.div`
-// margin-left:12px;
-// margin-top:11px;
-// max-width:90px;
-// font-size:12px;
-// color: #7468A7;
-// font-weight:500;
-// `;
+const AvatarName = styled.div`
+margin-left:12px;
+margin-top:11px;
+max-width:90px;
+font-size:12px;
+color: #7468A7;
+font-weight:500;
+`;
+
 
 const CommentBox = styled.textarea`
 width:100%;
@@ -81,13 +80,14 @@ hover{
 
 
 
-const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick}) => {
+const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick, url}) => {
     return<Container>
-    {/* <AvatarHeader>
-        <AvatarImg >  </AvatarImg>
+
+    <AvatarHeader>
+        <AvatarImg src={url}></AvatarImg>
         <AvatarName>{NameTxt}</AvatarName>
        
-    </AvatarHeader> */}
+    </AvatarHeader>
 
     <CommentBox placeholder={Placeholder} onChange={onChange}></CommentBox>
 
