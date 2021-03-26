@@ -28,6 +28,13 @@
    display: flex;
 
 }
+
+.BackBtnCont{
+    margin-left:10pt;
+margin-top:10pt;
+position: fixed;
+}
+
 .bbutton {
     position: relative;
     top:-350px;
@@ -36,8 +43,8 @@
 }
 .postimage{
     width:100%;
-    max-width: 100vw;
-    height:308px;
+    // max-width: 100vw;
+    height:100%;
     border-radius: 0px 0px 10px 10px;
 }
 

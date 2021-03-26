@@ -14,7 +14,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
 font-family: 'Poppins', sans-serif;
 font-size:14px;
-display:grid;
+// display:grid;
 flex-direction: column;
 box-sizing:border-box;
 `;
@@ -42,6 +42,7 @@ color: #7468A7;
 font-weight:500;
 `;
 
+
 const CommentBox = styled.textarea`
 width:100%;
 min-width:306px;
@@ -54,6 +55,9 @@ border-radius: 5px;
 font-family: 'Poppins', sans-serif;
 font-size:13px;
 color: black;
+top: 10px;
+left: 10px;
+position: relative;
 
 `;
 
@@ -67,7 +71,8 @@ background: #7468A7;
 border-radius: 5px;
 color:white;
 font-family: 'Poppins', sans-serif;
-
+left: 50px;
+position: relative;
 hover{
     border: 1px solid white;
 }
@@ -77,6 +82,7 @@ hover{
 
 const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick, url}) => {
     return<Container>
+
     <AvatarHeader>
         <AvatarImg src={url}></AvatarImg>
         <AvatarName>{NameTxt}</AvatarName>
@@ -91,7 +97,7 @@ const CommentPrompt = ({Placeholder, NameTxt, LikeNumber, onChange, onClick, url
 
 
 CommentPrompt.defaultProps = {
-    LikeNumber: 120,
+    // LikeNumber: 120,
     CaptionTxt: "I spent all night on this for my Web Development class. I used styled.css and react for it. Here are some screenshots of my code. Let me know what you guys think! ",
     NameTxt:"Joe Le",
     Placeholder: "Share your comments!"
