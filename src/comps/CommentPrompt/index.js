@@ -24,11 +24,10 @@ margin-bottom: 5px;
 display:flex;
 `;
 const AvatarImg = styled.img`
-width:24px;
-height:24px;
-border:1px solid black;
+width:35px;
+height:35px;
 border-radius: 50px;
-// margin-left:10px;
+margin-left:10px;
 margin-top:6px;
 
 `;

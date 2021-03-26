@@ -57,6 +57,7 @@ right:20px;
 const AvatarCont = styled.div`
 display: flex;
 flex-direction:column;
+margin-top:-20px;
 `;
 
 const Box = styled.div`
