@@ -80,7 +80,9 @@ export default function ProfilePage(){
             <img className="profilepicture" src={user.ProfileImg}></img>
             <div className="profile-subdiv">
             <h3>{user.Username}</h3>
-            <EditButton>Edit Profile</EditButton>
+            <EditButton onClick={()=>{
+              history.push("/settings")
+            }}>Edit Profile</EditButton>
             </div>
           </div>    
         </div>

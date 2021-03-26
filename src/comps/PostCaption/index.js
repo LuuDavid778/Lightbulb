@@ -30,7 +30,6 @@ position: relative;
 const AvatarImg = styled.img`
 width:40px;
 height:40px;
-border:1px solid black;
 border-radius: 50px;
 margin-left:10px;
 margin-top:6px;
@@ -51,7 +50,7 @@ const TextCont = styled.div`
 margin:0pt;
 position: relative;
 left:10px;
-padding:10px;
+padding:15px;
 `;
 
 

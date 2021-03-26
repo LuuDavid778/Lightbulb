@@ -91,7 +91,7 @@ Comment.defaultProps = {
     username: "Rocky",
     comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque eu tincidunt tortor aliquam nulla.",
     likes: 5,
-    url:"https://placekeanu.com/26/26",
+    url:"https://via.placeholder.com/30",
     iconOnClick: ()=>{}
 }
 

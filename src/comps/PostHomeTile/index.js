@@ -10,6 +10,7 @@ import LikeTag from '../../comps/LikeTag';
 const Container = styled.div`
 display: inline-block;
 align-items:center;
+margin-bottom:-80px;
 `;
 
 const ButtonDiv = styled.div`

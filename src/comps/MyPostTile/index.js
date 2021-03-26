@@ -63,7 +63,6 @@ const MyPostTile = ({title, category, url, onClickEdit, onClickDelete, onClick})
          <TileButton onClick={onClickDelete} hovercolor="#EB4242" label="Delete"></TileButton>
       </ButtonDiv>
       <HeaderTag>
-<PostAuthorTag></PostAuthorTag>
 </HeaderTag>
     </Container>
 }
