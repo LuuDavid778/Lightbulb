@@ -14,7 +14,23 @@ line-height: 72px;
 color: #B086F7;
 margin-left: 59px ;
 margin-top: 42px;
+margin-bottom:50px;
 align-self:center;
+`;
+
+const AppLogo = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+const FooterContents = styled.div`
+background: #B086F7;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+width: 100%;
+height: 277px;
+position: relative;
+bottom: -180px;
 `;
 
 const LoginSignupPrompt = styled.div`
@@ -33,19 +49,13 @@ display:flex;
 justify-content:center;
 `;
 
-const FooterContents = styled.div`
-background: #B086F7;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-width: 100%;
-height: 277px;
-position: relative;
-bottom: -430px;
-`;
+
 
 const LandingPage = () => {
     const history = useHistory();
  return <div>
      <AppTitle>LIGHTBULB</AppTitle>
+     <AppLogo><img src='/logo.png'/></AppLogo>
     <FooterContents>
         <LoginSignupPrompt> Login or signup and jump into the action!</LoginSignupPrompt>
         <div className="Buttons">
